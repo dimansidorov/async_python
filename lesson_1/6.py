@@ -20,10 +20,13 @@ with open('test_file.txt', 'rb') as f:
 encoding = detector.result['encoding']
 print(f'Кодировка - {encoding}\n')
 
-with open('test_file.txt', 'r', encoding=encoding) as f:
+with open('test_file.txt', 'r', encoding='utf-8') as f:
     text = f.read().split('\n')
     for word in text:
         print(word)
+
+with open('test_file.txt', 'w', encoding=encoding) as f:
+    f.write('')
 
 
 
