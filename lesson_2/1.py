@@ -70,7 +70,8 @@ def get_data(filenames: list[str]) -> \
 
 def write_to_csv(filename: str) -> None:
     main_data = [["Изготовитель системы", "Название ОС", "Код продукта", "Тип системы"]]
-    main_data.extend(get_data(['info_1.txt', 'info_2.txt', 'info_1.txt']))
+    data = [i for i in zip(*get_data(['info_1.txt', 'info_2.txt', 'info_1.txt']))]
+    main_data.extend(data)
     with open(filename, 'w', encoding='UTF-8') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_NONNUMERIC)
         for row in main_data:
