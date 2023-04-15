@@ -13,6 +13,20 @@
             "price": "100000",
             "buyer": "mrs. Wood",
             "date": "21.09.2022"
+        },
+        {
+            "item": "iphone 14",
+            "quantity": "1",
+            "price": "116700",
+            "buyer": "mr. Smith",
+            "date": "24.02.2022"
+        },
+        {
+            "item": "google pixel 5",
+            "quantity": "1",
+            "price": "100000",
+            "buyer": "mrs. Wood",
+            "date": "21.09.2022"
         }
     ]
 }
