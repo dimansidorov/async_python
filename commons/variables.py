@@ -1,3 +1,5 @@
+import logging
+
 """Settings"""
 """Default settings"""
 DEFAULT_PORT = 7777
@@ -16,3 +18,6 @@ ACCOUNT_NAME = 'account_name'
 PRESENCE = 'presence'
 RESPONSE = 'response'
 ERROR = 'error'
+
+"""Logging"""
+LOGGING_LEVEL = logging.DEBUG

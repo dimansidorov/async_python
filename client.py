@@ -19,7 +19,7 @@ def create_presence_msg(account_name='Guest'):
     return out
 
 
-def answer_server(message):
+def get_answer_server(message):
     if RESPONSE in message:
         if message[RESPONSE] == 200:
             return '200 : OK'
@@ -46,7 +46,7 @@ def main():
     message_to_server = create_presence_msg()
     send_message(client, message_to_server)
     try:
-        answer = answer_server(get_message(client))
+        answer = get_answer_server(get_message(client))
         print(answer)
     except (ValueError, json.JSONDecodeError):
         print('Не удалось декодировать сообщение сервера.')
