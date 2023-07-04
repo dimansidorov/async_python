@@ -2,10 +2,12 @@ import sys
 import os
 import logging.handlers
 import logging
-from commons.variables import ENCODING, LOGGING_LEVEL
+from commons.variables import (
+    ENCODING, LOGGING_LEVEL, LOGGING_FORMAT, LOGGER_CRITICAL, LOGGER_INFO, LOGGER_DEBUG, LOGGER_ERROR
+)
 
 
-SERVER_FORMATTER = logging.Formatter('%(asctime)s %(levelname)s %(filename)s %(message)s')
+SERVER_FORMATTER = logging.Formatter(LOGGING_FORMAT)
 
 PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'server.log')
 
@@ -22,7 +24,7 @@ LOGGER.setLevel(LOGGING_LEVEL)
 
 
 if __name__ == '__main__':
-    LOGGER.critical('CRITICAL ERROR')
-    LOGGER.error('ERROR')
-    LOGGER.debug('DEBUG INFO')
-    LOGGER.info('INFO')
+    LOGGER.critical(LOGGER_CRITICAL)
+    LOGGER.error(LOGGER_ERROR)
+    LOGGER.debug(LOGGER_DEBUG)
+    LOGGER.info(LOGGER_INFO)

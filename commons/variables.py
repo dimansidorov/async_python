@@ -21,3 +21,8 @@ ERROR = 'error'
 
 """Logging"""
 LOGGING_LEVEL = logging.DEBUG
+LOGGING_FORMAT = '%(asctime)s %(levelname)s %(filename)s %(message)s'
+LOGGER_CRITICAL = 'CRITICAL ERROR'
+LOGGER_ERROR = 'ERROR'
+LOGGER_DEBUG = 'DEBUG INFO'
+LOGGER_INFO = 'INFO'
