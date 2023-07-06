@@ -1,0 +1,4 @@
+2023-07-04 15:38:50,708 INFO server.py Connection established with ('127.0.0.1', 50098)
+2023-07-04 15:38:50,708 DEBUG server.py Message received {'action': 'presence', 'time': 1688668730.708576, 'user': {'account_name': 'Guest'}}
+2023-07-04 15:38:50,709 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688668730.708576, 'user': {'account_name': 'Guest'}}
+2023-07-04 15:38:50,709 DEBUG server.py Connection with ('127.0.0.1', 50098) is closing.

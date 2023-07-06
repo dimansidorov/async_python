@@ -7,7 +7,8 @@ from commons.variables import (
 
 CLIENT_FORMATTER = logging.Formatter(LOGGING_FORMAT)
 
-PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'client.log')
+PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'client_logs/client.log')
+print(PATH)
 
 STREAM_HANDLER = logging.StreamHandler(sys.stderr)
 STREAM_HANDLER.setFormatter(CLIENT_FORMATTER)
