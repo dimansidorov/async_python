@@ -1,0 +1,8 @@
+2023-07-04 14:55:59,485 CRITICAL config_client_logs.py CRITICAL ERROR
+2023-07-04 14:55:59,486 ERROR config_client_logs.py ERROR
+2023-07-04 14:55:59,486 DEBUG config_client_logs.py DEBUG INFO
+2023-07-04 14:55:59,486 INFO config_client_logs.py INFO
+2023-07-04 15:35:24,143 INFO client.py server address - 127.0.0.1, server port - 7777
+2023-07-04 15:38:50,708 INFO client.py server address - 127.0.0.1, server port - 7777
+2023-07-04 15:38:50,709 INFO client.py getting answer from server
+2023-07-04 15:38:50,709 INFO client.py Answer - 200 : OK

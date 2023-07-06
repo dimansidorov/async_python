@@ -1,0 +1,2 @@
+2023-07-04 15:32:23,754 INFO server.py Server started. port - 7777
+2023-07-04 15:32:23,755 INFO server.py Address is not specified, connections from any addresses are accepted.
