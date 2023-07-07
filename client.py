@@ -9,10 +9,12 @@ from commons.variables import ACCOUNT_NAME, ACTION, DEFAULT_PORT, DEFAULT_IP_ADD
 
 import logging
 import logs.config_client_logs
+from decorators import log
 
 CLIENT_LOGGER = logging.getLogger('client')
 
 
+@log
 def create_presence_msg(account_name='Guest'):
     out = {
         ACTION: PRESENCE,
@@ -24,6 +26,7 @@ def create_presence_msg(account_name='Guest'):
     return out
 
 
+@log
 def get_answer_server(message):
     CLIENT_LOGGER.info('getting answer from server')
     if RESPONSE in message:
@@ -47,7 +50,6 @@ def main():
         sys.exit(1)
     finally:
         CLIENT_LOGGER.info(f'server address - {server_address}, server port - {server_port}')
-
 
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.connect((server_address, server_port))

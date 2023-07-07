@@ -5,10 +5,12 @@ from commons.variables import DEFAULT_PORT, RESPONSE, PRESENCE, ACTION, TIME, US
 from commons.utils import get_message, send_message
 import logging
 import logs.config_server_logs
+from decorators import log
 
 SERVER_LOGGER = logging.getLogger('server')
 
 
+@log
 def parse_client_message(message) -> dict:
     SERVER_LOGGER.debug(f'Parse message from client: {message}')
     if all([ACTION in message, message[ACTION] == PRESENCE, TIME in message,
@@ -20,6 +22,7 @@ def parse_client_message(message) -> dict:
     }
 
 
+@log
 def get_port() -> int:
     try:
         if '-p' in sys.argv:
@@ -39,6 +42,7 @@ def get_port() -> int:
         sys.exit(1)
 
 
+@log
 def get_ip_address():
     try:
         if '-a' in sys.argv:
