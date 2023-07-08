@@ -6,3 +6,40 @@
 2023-07-04 15:38:50,708 INFO client.py server address - 127.0.0.1, server port - 7777
 2023-07-04 15:38:50,709 INFO client.py getting answer from server
 2023-07-04 15:38:50,709 INFO client.py Answer - 200 : OK
+2023-07-07 13:32:31,406 INFO client.py server address - 127.0.0.1, server port - 7777
+2023-07-07 13:32:31,410 DEBUG decorators.py Calling function create_presence_msg;Parameters: (), {};Module: __main__Call from function main
+2023-07-07 13:32:31,411 INFO client.py getting answer from server
+2023-07-07 13:32:31,411 DEBUG decorators.py Calling function get_answer_server;Parameters: ({'response': 200},), {};Module: __main__Call from function main
+2023-07-07 13:32:31,411 INFO client.py Answer - 200 : OK
+2023-07-07 13:35:27,930 INFO client.py server address - 127.0.0.1, server port - 7777
+2023-07-07 13:35:27,934 DEBUG decorators.py Calling function create_presence_msg; Parameters: (), []; Module: __main__; Call from function main
+2023-07-07 13:35:27,935 INFO client.py getting answer from server
+2023-07-07 13:35:27,935 DEBUG decorators.py Calling function get_answer_server; Parameters: ({'response': 200},), []; Module: __main__; Call from function main
+2023-07-07 13:35:27,935 INFO client.py Answer - 200 : OK
+2023-07-07 13:37:39,796 INFO client.py server address - 127.0.0.1, server port - 7777
+2023-07-07 13:37:39,800 DEBUG decorators.py Calling function create_presence_msg; Parameters: (), ; Module: __main__; Call from function main
+2023-07-07 13:37:39,800 INFO client.py getting answer from server
+2023-07-07 13:37:39,801 DEBUG decorators.py Calling function get_answer_server; Parameters: ({'response': 200},), ; Module: __main__; Call from function main
+2023-07-07 13:37:39,801 INFO client.py Answer - 200 : OK
+2023-07-07 13:38:55,628 INFO client.py server address - 127.0.0.1, server port - 7777
+2023-07-07 13:38:55,632 DEBUG decorators.py Calling function create_presence_msg; Parameters: (), ; Module: __main__; Call from function main
+2023-07-07 13:38:55,633 INFO client.py getting answer from server
+2023-07-07 13:38:55,633 DEBUG decorators.py Calling function get_answer_server; Parameters: ({'response': 200},), ; Module: __main__; Call from function main
+2023-07-07 13:38:55,633 INFO client.py Answer - 200 : OK
+2023-07-07 13:39:46,900 INFO client.py server address - 127.0.0.1, server port - 7777
+2023-07-07 13:39:53,519 INFO client.py server address - 127.0.0.1, server port - 7777
+2023-07-07 13:40:13,548 INFO client.py server address - 127.0.0.1, server port - 7777
+2023-07-07 13:40:13,552 DEBUG decorators.py Calling function create_presence_msg; Parameters: (), ; Module: __main__; Call from function main
+2023-07-07 13:40:13,553 INFO client.py getting answer from server
+2023-07-07 13:40:13,553 DEBUG decorators.py Calling function get_answer_server; Parameters: ({'response': 200},), ; Module: __main__; Call from function main
+2023-07-07 13:40:13,553 INFO client.py Answer - 200 : OK
+2023-07-07 15:07:26,934 INFO client.py server address - 127.0.0.1, server port - 7777
+2023-07-07 15:07:26,938 DEBUG decorators.py Calling function create_presence_msg; Parameters: (), ; Module: __main__; Call from function main
+2023-07-07 15:07:26,939 INFO client.py getting answer from server
+2023-07-07 15:07:26,939 DEBUG decorators.py Calling function get_answer_server; Parameters: ({'response': 200},), ; Module: __main__; Call from function main
+2023-07-07 15:07:26,939 INFO client.py Answer - 200 : OK
+2023-07-08 12:06:54,874 INFO client.py server address - 127.0.0.1, server port - 7777
+2023-07-08 12:06:54,875 DEBUG client.py Calling function create_presence_msg; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 12:06:54,875 INFO client.py getting answer from server
+2023-07-08 12:06:54,875 DEBUG client.py Calling function get_answer_server; Parameters: ({'response': 200},), ; Module: __main__; Call from function main()
+2023-07-08 12:06:54,875 INFO client.py Answer - 200 : OK
