@@ -1,0 +1,27 @@
+2023-07-07 13:37:39,796 INFO server.py Connection established with ('127.0.0.1', 35624)
+2023-07-07 13:37:39,800 DEBUG server.py Message received {'action': 'presence', 'time': 1688729859.7966154, 'user': {'account_name': 'Guest'}}
+2023-07-07 13:37:39,800 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688729859.7966154, 'user': {'account_name': 'Guest'}}
+2023-07-07 13:37:39,800 DEBUG decorators.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688729859.7966154, 'user': {'account_name': 'Guest'}},), ; Module: __main__; Call from function main
+2023-07-07 13:37:39,800 DEBUG server.py Connection with ('127.0.0.1', 35624) is closing.
+2023-07-07 13:38:49,156 INFO server.py Server started. port - 7777
+2023-07-07 13:38:49,159 DEBUG decorators.py Calling function get_port; Parameters: (), ; Module: __main__; Call from function main
+2023-07-07 13:38:49,159 INFO server.py Address is not specified, connections from any addresses are accepted.
+2023-07-07 13:38:49,159 DEBUG decorators.py Calling function get_ip_address; Parameters: (), ; Module: __main__; Call from function main
+2023-07-07 13:38:55,629 INFO server.py Connection established with ('127.0.0.1', 46070)
+2023-07-07 13:38:55,632 DEBUG server.py Message received {'action': 'presence', 'time': 1688729935.6291168, 'user': {'account_name': 'Guest'}}
+2023-07-07 13:38:55,632 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688729935.6291168, 'user': {'account_name': 'Guest'}}
+2023-07-07 13:38:55,633 DEBUG decorators.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688729935.6291168, 'user': {'account_name': 'Guest'}},), ; Module: __main__; Call from function main
+2023-07-07 13:38:55,633 DEBUG server.py Connection with ('127.0.0.1', 46070) is closing.
+2023-07-07 13:39:49,290 INFO server.py Server started. port - 7777
+2023-07-07 13:39:49,294 DEBUG decorators.py Calling function get_port; Parameters: (), ; Module: __main__; Call from function main
+2023-07-07 13:39:49,294 INFO server.py Address is not specified, connections from any addresses are accepted.
+2023-07-07 13:39:49,294 DEBUG decorators.py Calling function get_ip_address; Parameters: (), ; Module: __main__; Call from function main
+2023-07-07 13:40:07,915 INFO server.py Server started. port - 7777
+2023-07-07 13:40:07,918 DEBUG decorators.py Calling function get_port; Parameters: (), ; Module: __main__; Call from function main
+2023-07-07 13:40:07,918 INFO server.py Address is not specified, connections from any addresses are accepted.
+2023-07-07 13:40:07,918 DEBUG decorators.py Calling function get_ip_address; Parameters: (), ; Module: __main__; Call from function main
+2023-07-07 13:40:13,548 INFO server.py Connection established with ('127.0.0.1', 57082)
+2023-07-07 13:40:13,552 DEBUG server.py Message received {'action': 'presence', 'time': 1688730013.5488014, 'user': {'account_name': 'Guest'}}
+2023-07-07 13:40:13,553 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688730013.5488014, 'user': {'account_name': 'Guest'}}
+2023-07-07 13:40:13,553 DEBUG decorators.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688730013.5488014, 'user': {'account_name': 'Guest'}},), ; Module: __main__; Call from function main
+2023-07-07 13:40:13,553 DEBUG server.py Connection with ('127.0.0.1', 57082) is closing.
