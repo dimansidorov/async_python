@@ -4,7 +4,7 @@ import sys
 import time
 import argparse
 
-from commons.utils import send_message, get_message
+from commons.utils import send_message, get_message, check_port, check_mode
 from commons.variables import (
     ACCOUNT_NAME,
     ACTION,
@@ -28,15 +28,18 @@ LOGGER = logging.getLogger('client')
 
 
 @log
-def create_presence_msg(account_name='Guest'):
-    out = {
-        ACTION: PRESENCE,
-        TIME: time.time(),
-        USER: {
-            ACCOUNT_NAME: account_name
-        }
-    }
-    return out
+def get_message_from_server(message):
+    if all([
+        ACTION in message,
+        message[ACTION] == MESSAGE,
+        SENDER in message,
+        MESSAGE_TEXT in message
+    ]):
+        LOGGER.info('Received a message from the user'
+                    f'{message[SENDER]}:{message[MESSAGE_TEXT]}')
+        print(f'{message[SENDER]}: {message[MESSAGE_TEXT]}')
+    else:
+        LOGGER.error(f'Received an invalid massage')
 
 
 @log
@@ -58,7 +61,17 @@ def create_message(sock, account_name='Guest'):
 
 
 @log
-def get_answer_from_server(message):
+def create_presence_msg(account_name='Guest'):
+    out = {
+        ACTION: PRESENCE,
+        TIME: time.time(),
+        USER: {ACCOUNT_NAME: account_name}
+    }
+    return out
+
+
+@log
+def get_process_response_ans(message):
     LOGGER.info('getting answer from server')
     if RESPONSE in message:
         if message[RESPONSE] == 200:
@@ -78,12 +91,12 @@ def parse_args():
     server_port = namespace.port
     client_mode = namespace.mode
 
-    if not 1023 < server_port < 65536:
+    if not check_port(server_port):
         LOGGER.critical(
             f'Invalid port -  {server_port}.')
         sys.exit(1)
 
-    if client_mode not in ('send', 'listen'):
+    if not check_mode(client_mode):
         LOGGER.critical(
             f'Invalid mode -  {client_mode}.')
         sys.exit(1)
@@ -91,29 +104,15 @@ def parse_args():
     return server_address, server_port, client_mode
 
 
-@log
-def get_message_from_server(message):
-    if all([
-        ACTION in message,
-        message[ACTION] == MESSAGE,
-        SENDER in message,
-        MESSAGE_TEXT in message
-    ]):
-        LOGGER.info('Received a message from the user'
-                    f'{message[SENDER]}:\n{message[MESSAGE_TEXT]}')
-
-    LOGGER.error(f'Received an invalid massage')
-
-
 def main():
     server_address, server_port, client_mode = parse_args()
-    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client.connect((server_address, server_port))
-    message_to_server = create_presence_msg()
-    send_message(client, message_to_server)
 
     try:
-        answer = get_answer_from_server(get_message(client))
+        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client.connect((server_address, server_port))
+        send_message(client, create_presence_msg())
+        answer = get_process_response_ans(get_message(client))
+        LOGGER.info(f'{answer}')
     except json.JSONDecodeError:
         LOGGER.error(f'Error decoding json string')
     except ValueError:
@@ -122,11 +121,11 @@ def main():
         while True:
             try:
                 if client_mode == 'listen':
-                    get_message_from_server(get_message(client))
+                    a = get_message_from_server(get_message(client))
                 else:
                     send_message(client, create_message(client))
-            except Exception:
-                LOGGER.error(f'The connection to the {server_address} server has been lost.')
+            except Exception as err:
+                LOGGER.error(f'The connection to the {server_address} server has been lost. Error: {err}')
                 sys.exit(1)
 
 

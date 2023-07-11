@@ -1,0 +1,222 @@
+2023-07-08 21:43:56,679 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:43:56,679 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 21:45:16,080 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:45:16,080 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 21:45:31,190 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:45:31,190 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 21:45:51,840 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:45:51,840 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 21:45:59,857 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:45:59,858 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 21:46:11,969 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:46:11,970 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 21:47:34,483 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:47:34,483 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 21:47:48,388 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:47:48,388 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 21:48:07,132 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:48:07,133 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 21:48:28,836 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:48:28,836 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 21:48:36,190 INFO server.py Connection established with ('127.0.0.1', 59440)
+2023-07-08 21:48:36,190 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 59440)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:48:36,190 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688845716.1904075, 'user': {'account_name': 'Guest'}}
+2023-07-08 21:48:36,191 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 59440)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 21:48:36,191 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688845716.1904075, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 59440)>), ; Module: __main__; Call from function main()
+2023-07-08 21:50:15,054 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:50:15,054 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 21:51:05,327 INFO server.py Connection established with ('127.0.0.1', 37424)
+2023-07-08 21:51:05,328 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 37424)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:51:05,328 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688845865.327771, 'user': {'account_name': 'Guest'}}
+2023-07-08 21:51:05,328 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 37424)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 21:51:05,328 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688845865.327771, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 37424)>), ; Module: __main__; Call from function main()
+2023-07-08 21:51:23,642 INFO server.py Connection established with ('127.0.0.1', 35696)
+2023-07-08 21:51:23,642 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 37424)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:51:23,642 DEBUG server.py Parse message from client: {'action': 'message', 'time': 1688845871.254133, 'account_name': 'Guest', 'message_text': 'привет'}
+2023-07-08 21:51:23,642 ERROR server.py <class 'KeyError'>
+2023-07-08 21:51:23,642 INFO server.py The client disconnected from the server
+2023-07-08 21:51:23,642 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 35696)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:51:23,642 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688845883.642146, 'user': {'account_name': 'Guest'}}
+2023-07-08 21:51:23,643 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 35696)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 21:51:23,643 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688845883.642146, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 35696)>), ; Module: __main__; Call from function main()
+2023-07-08 21:51:53,138 INFO server.py Connection established with ('127.0.0.1', 33338)
+2023-07-08 21:51:53,138 ERROR server.py <class 'json.decoder.JSONDecodeError'>
+2023-07-08 21:51:53,138 INFO server.py The client disconnected from the server
+2023-07-08 21:51:53,138 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=8, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 33338)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:51:53,138 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688845913.138339, 'user': {'account_name': 'Guest'}}
+2023-07-08 21:51:53,139 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=8, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 33338)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 21:51:53,139 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688845913.138339, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=8, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 33338)>), ; Module: __main__; Call from function main()
+2023-07-08 21:51:58,399 INFO server.py Connection established with ('127.0.0.1', 52260)
+2023-07-08 21:51:58,399 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 52260)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:51:58,399 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688845918.3993397, 'user': {'account_name': 'Guest'}}
+2023-07-08 21:51:58,399 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 52260)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 21:51:58,399 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688845918.3993397, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 52260)>), ; Module: __main__; Call from function main()
+2023-07-08 21:54:32,391 INFO server.py Connection established with ('127.0.0.1', 50210)
+2023-07-08 21:54:32,391 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=8, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 33338)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:54:32,391 DEBUG server.py Parse message from client: {'action': 'message', 'time': 1688845922.2540958, 'account_name': 'Guest', 'message_text': 'hi'}
+2023-07-08 21:54:32,391 ERROR server.py <class 'KeyError'>
+2023-07-08 21:54:32,392 INFO server.py The client disconnected from the server
+2023-07-08 21:54:32,392 ERROR server.py <class 'json.decoder.JSONDecodeError'>
+2023-07-08 21:54:32,392 INFO server.py The client disconnected from the server
+2023-07-08 21:54:32,392 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50210)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:54:32,392 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688846072.391593, 'user': {'account_name': 'Guest'}}
+2023-07-08 21:54:32,392 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50210)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 21:54:32,392 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688846072.391593, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50210)>), ; Module: __main__; Call from function main()
+2023-07-08 21:54:35,700 INFO server.py Connection established with ('127.0.0.1', 37518)
+2023-07-08 21:54:35,701 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=9, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 37518)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:54:35,701 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688846075.7007322, 'user': {'account_name': 'Guest'}}
+2023-07-08 21:54:35,701 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=9, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 37518)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 21:54:35,701 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688846075.7007322, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=9, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 37518)>), ; Module: __main__; Call from function main()
+2023-07-08 21:54:48,042 INFO server.py Connection established with ('127.0.0.1', 48736)
+2023-07-08 21:54:48,042 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50210)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:54:48,042 DEBUG server.py Parse message from client: {'action': 'message', 'time': 1688846079.3944933, 'account_name': 'Guest', 'message_text': 'hello'}
+2023-07-08 21:54:48,042 ERROR server.py <class 'KeyError'>
+2023-07-08 21:54:48,042 INFO server.py The client disconnected from the server
+2023-07-08 21:54:48,043 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 48736)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:54:48,043 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688846088.0424159, 'user': {'account_name': 'Guest'}}
+2023-07-08 21:54:48,043 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 48736)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 21:54:48,043 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688846088.0424159, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 48736)>), ; Module: __main__; Call from function main()
+2023-07-08 21:58:28,739 INFO server.py Connection established with ('127.0.0.1', 35118)
+2023-07-08 21:58:28,739 ERROR server.py <class 'json.decoder.JSONDecodeError'>
+2023-07-08 21:58:28,739 INFO server.py The client disconnected from the server
+2023-07-08 21:58:28,740 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 48736)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:58:28,740 DEBUG server.py Parse message from client: {'action': 'message', 'time': 1688846090.0006492, 'account_name': 'Guest', 'message_text': 'hello'}
+2023-07-08 21:58:28,740 ERROR server.py <class 'KeyError'>
+2023-07-08 21:58:28,740 INFO server.py The client disconnected from the server
+2023-07-08 21:58:28,740 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=8, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 35118)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:58:28,740 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688846308.7395716, 'user': {'account_name': 'Guest'}}
+2023-07-08 21:58:28,740 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=8, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 35118)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 21:58:28,740 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688846308.7395716, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=8, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 35118)>), ; Module: __main__; Call from function main()
+2023-07-08 21:58:31,182 INFO server.py Connection established with ('127.0.0.1', 35132)
+2023-07-08 21:58:31,182 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 35132)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 21:58:31,182 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688846311.182063, 'user': {'account_name': 'Guest'}}
+2023-07-08 21:58:31,182 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 35132)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 21:58:31,182 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688846311.182063, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 35132)>), ; Module: __main__; Call from function main()
+2023-07-08 22:00:22,799 INFO server.py Connection established with ('127.0.0.1', 58084)
+2023-07-08 22:00:22,799 ERROR server.py <class 'json.decoder.JSONDecodeError'>
+2023-07-08 22:00:22,799 INFO server.py The client disconnected from the server
+2023-07-08 22:00:22,799 ERROR server.py <class 'json.decoder.JSONDecodeError'>
+2023-07-08 22:00:22,799 INFO server.py The client disconnected from the server
+2023-07-08 22:00:22,799 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 58084)>,), ; Module: commons.utils; Call from function <module>
+2023-07-08 22:00:22,799 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688846422.7990332, 'user': {'account_name': 'Guest'}}
+2023-07-08 22:00:22,800 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 58084)>, {'response': 200}), ; Module: commons.utils; Call from function <module>
+2023-07-08 22:00:22,800 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688846422.7990332, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 58084)>), ; Module: __main__; Call from function <module>
+2023-07-08 22:01:43,912 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:01:43,912 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 22:01:49,179 INFO server.py Connection established with ('127.0.0.1', 57460)
+2023-07-08 22:01:49,180 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 57460)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:01:49,180 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688846509.179675, 'user': {'account_name': 'Guest'}}
+2023-07-08 22:01:49,180 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 57460)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 22:01:49,180 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688846509.179675, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 57460)>), ; Module: __main__; Call from function main()
+2023-07-08 22:02:03,630 INFO server.py Connection established with ('127.0.0.1', 39578)
+2023-07-08 22:02:03,631 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 57460)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:02:03,631 DEBUG server.py Parse message from client: {'action': 'message', 'time': 1688846518.741674, 'account_name': 'Guest', 'message_text': 'hello'}
+2023-07-08 22:02:03,631 ERROR server.py 'user'
+2023-07-08 22:02:03,631 INFO server.py The client disconnected from the server
+2023-07-08 22:02:03,631 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 39578)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:02:03,631 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688846523.6307425, 'user': {'account_name': 'Guest'}}
+2023-07-08 22:02:03,631 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 39578)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 22:02:03,631 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688846523.6307425, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 39578)>), ; Module: __main__; Call from function main()
+2023-07-08 22:08:20,076 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:08:20,076 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 22:08:26,410 INFO server.py Connection established with ('127.0.0.1', 58910)
+2023-07-08 22:08:26,410 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 58910)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:08:26,410 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688846906.4103324, 'user': {'account_name': 'Guest'}}
+2023-07-08 22:08:26,410 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 58910)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 22:08:26,411 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688846906.4103324, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 58910)>), ; Module: __main__; Call from function main()
+2023-07-08 22:08:32,907 INFO server.py Connection established with ('127.0.0.1', 58916)
+2023-07-08 22:08:32,907 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 58916)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:08:32,907 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688846912.9072592, 'user': {'account_name': 'Guest'}}
+2023-07-08 22:08:32,907 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 58916)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 22:08:32,908 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688846912.9072592, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 58916)>), ; Module: __main__; Call from function main()
+2023-07-08 22:28:04,758 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:28:04,759 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 22:28:08,004 INFO server.py Connection established with ('127.0.0.1', 49840)
+2023-07-08 22:28:08,005 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 49840)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:28:08,005 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688848088.0045784, 'user': {'account_name': 'Guest'}}
+2023-07-08 22:28:08,005 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 49840)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 22:28:08,005 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688848088.0045784, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 49840)>), ; Module: __main__; Call from function main()
+2023-07-08 22:28:17,728 INFO server.py Connection established with ('127.0.0.1', 41612)
+2023-07-08 22:28:17,728 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 41612)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:28:17,728 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688848097.7280695, 'user': {'account_name': 'Guest'}}
+2023-07-08 22:28:17,728 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 41612)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 22:28:17,728 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688848097.7280695, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 41612)>), ; Module: __main__; Call from function main()
+2023-07-08 22:29:54,806 INFO server.py Connection established with ('127.0.0.1', 35804)
+2023-07-08 22:29:54,806 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 41612)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:29:54,806 DEBUG server.py Parse message from client: {'action': 'message', 'time': 1688848100.7262743, 'account_name': 'Guest', 'message_text': 'hi'}
+2023-07-08 22:29:54,806 ERROR server.py 'user'
+2023-07-08 22:29:54,806 INFO server.py The client disconnected from the server
+2023-07-08 22:29:54,806 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=8, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 35804)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:29:54,806 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688848194.8063707, 'user': {'account_name': 'Guest'}}
+2023-07-08 22:29:54,807 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=8, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 35804)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 22:29:54,807 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688848194.8063707, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=8, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 35804)>), ; Module: __main__; Call from function main()
+2023-07-08 22:30:05,218 INFO server.py Connection established with ('127.0.0.1', 56236)
+2023-07-08 22:30:05,219 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=9, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 56236)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:30:05,219 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688848205.2187483, 'user': {'account_name': 'Guest'}}
+2023-07-08 22:30:05,219 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=9, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 56236)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 22:30:05,219 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688848205.2187483, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=9, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 56236)>), ; Module: __main__; Call from function main()
+2023-07-08 22:30:56,810 INFO server.py Connection established with ('127.0.0.1', 60952)
+2023-07-08 22:30:56,810 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=8, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 35804)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:30:56,810 DEBUG server.py Parse message from client: {'action': 'message', 'time': 1688848208.3114803, 'account_name': 'Guest', 'message_text': 'hello'}
+2023-07-08 22:30:56,810 ERROR server.py 'user'
+2023-07-08 22:30:56,810 INFO server.py The client disconnected from the server
+2023-07-08 22:30:56,810 ERROR server.py Expecting value: line 1 column 1 (char 0)
+2023-07-08 22:30:56,810 INFO server.py The client disconnected from the server
+2023-07-08 22:34:05,381 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:34:05,381 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 22:34:22,198 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:34:22,198 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 22:38:14,361 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:38:14,361 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 22:38:21,741 INFO server.py Connection established with ('127.0.0.1', 55020)
+2023-07-08 22:38:28,689 INFO server.py Connection established with ('127.0.0.1', 35422)
+2023-07-08 22:38:28,689 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 55020)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:38:28,689 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688848701.7415457, 'user': {'account_name': 'Guest'}}
+2023-07-08 22:38:28,689 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 55020)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 22:38:28,689 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688848701.7415457, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 55020)>), ; Module: __main__; Call from function main()
+2023-07-08 22:39:58,108 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:39:58,108 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 22:40:02,553 INFO server.py Connection established with ('127.0.0.1', 50594)
+2023-07-08 22:40:02,553 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50594)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:40:02,553 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688848802.5531533, 'user': {'account_name': 'Guest'}}
+2023-07-08 22:40:02,553 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50594)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 22:40:02,553 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688848802.5531533, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50594)>), ; Module: __main__; Call from function main()
+2023-07-08 22:40:05,576 INFO server.py Connection established with ('127.0.0.1', 50606)
+2023-07-08 22:40:05,576 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50606)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:40:05,576 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688848805.576474, 'user': {'account_name': 'Guest'}}
+2023-07-08 22:40:05,577 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50606)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 22:40:05,577 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688848805.576474, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50606)>), ; Module: __main__; Call from function main()
+2023-07-08 22:43:35,481 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:43:35,481 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 22:43:50,028 INFO server.py Connection established with ('127.0.0.1', 50650)
+2023-07-08 22:43:50,028 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50650)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:43:50,028 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688849030.0281923, 'user': {'account_name': 'Guest'}}
+2023-07-08 22:43:50,028 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50650)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 22:43:50,028 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688849030.0281923, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50650)>), ; Module: __main__; Call from function main()
+2023-07-08 22:43:52,815 INFO server.py Connection established with ('127.0.0.1', 50666)
+2023-07-08 22:43:52,816 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50666)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:43:52,816 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688849032.8158681, 'user': {'account_name': 'Guest'}}
+2023-07-08 22:43:52,816 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50666)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 22:43:52,816 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688849032.8158681, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50666)>), ; Module: __main__; Call from function main()
+2023-07-08 22:46:28,637 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:46:28,637 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 22:46:31,309 INFO server.py Connection established with ('127.0.0.1', 58548)
+2023-07-08 22:46:31,309 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 58548)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:46:31,309 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688849191.3095794, 'user': {'account_name': 'Guest'}}
+2023-07-08 22:46:31,310 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 58548)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 22:46:31,310 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688849191.3095794, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 58548)>), ; Module: __main__; Call from function main()
+2023-07-08 22:46:34,349 INFO server.py Connection established with ('127.0.0.1', 58562)
+2023-07-08 22:46:34,350 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 58562)>,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:46:34,350 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688849194.3497477, 'user': {'account_name': 'Guest'}}
+2023-07-08 22:46:34,350 DEBUG server.py Calling function send_message; Parameters: (<socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 58562)>, {'response': 200}), ; Module: commons.utils; Call from function main()
+2023-07-08 22:46:34,350 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688849194.3497477, 'user': {'account_name': 'Guest'}}, [], <socket.socket fd=7, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 58562)>), ; Module: __main__; Call from function main()
+2023-07-08 22:51:08,575 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:51:08,575 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 22:53:32,854 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:53:32,854 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 22:54:08,152 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:54:08,153 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 22:56:30,686 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:56:30,686 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 22:57:25,869 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-08 22:57:25,869 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
