@@ -1,85 +1,121 @@
-import json
+import time
+import select
 import socket
 import sys
-from commons.variables import DEFAULT_PORT, RESPONSE, PRESENCE, ACTION, TIME, USER, ACCOUNT_NAME, ERROR, MAX_CONNECTIONS
-from commons.utils import get_message, send_message
+import argparse
+from commons.variables import (
+    ACCOUNT_NAME,
+    ACTION,
+    DEFAULT_PORT,
+    ERROR,
+    MAX_CONNECTIONS,
+    MESSAGE,
+    MESSAGE_TEXT,
+    PRESENCE,
+    RESPONSE,
+    SENDER,
+    TIME,
+    USER
+)
+
+from commons.utils import get_message, send_message, check_port
 import logging
 import logs.config_server_logs
 from decorators import log
 
-SERVER_LOGGER = logging.getLogger('server')
+LOGGER = logging.getLogger('server')
 
 
 @log
-def parse_client_message(message) -> dict:
-    SERVER_LOGGER.debug(f'Parse message from client: {message}')
-    if all([ACTION in message, message[ACTION] == PRESENCE, TIME in message,
-            USER in message, message[USER][ACCOUNT_NAME] == 'Guest']):
-        return {RESPONSE: 200}
-    return {
-        RESPONSE: 400,
-        ERROR: 'Bad Request'
-    }
-
-
-@log
-def get_port() -> int:
-    try:
-        if '-p' in sys.argv:
-            listen_port = int(sys.argv[sys.argv.index('-p') + 1])
-        else:
-            listen_port = DEFAULT_PORT
-        if listen_port < 1024 or listen_port > 65535:
-            SERVER_LOGGER.critical(f'Uncorrected port - {listen_port}. Port - is a number from 1024 to 65535.')
-            raise ValueError
-        else:
-            SERVER_LOGGER.info(f'Server started. port - {listen_port}')
-            return listen_port
-    except IndexError:
-        SERVER_LOGGER.critical("After -'p' please enter port")
-        sys.exit(1)
-    except ValueError:
-        sys.exit(1)
-
-
-@log
-def get_ip_address():
-    try:
-        if '-a' in sys.argv:
-            listen_address = sys.argv[sys.argv.index('-a') + 1]
-            SERVER_LOGGER.info(f'IP address - {listen_address}')
-        else:
-            listen_address = ''
-            SERVER_LOGGER.info('Address is not specified, connections from any addresses are accepted.')
-    except IndexError:
-        SERVER_LOGGER.critical(f'Uncorrected address. After parameter "a" please enter address, '
-                               f'which server will listen.')
-        sys.exit(1)
+def process_client_message(message, messages_list, client) -> None:
+    LOGGER.debug(f'Разбор сообщения от клиента : {message}')
+    # Если это сообщение о присутствии, принимаем и отвечаем, если успех
+    if ACTION in message and message[ACTION] == PRESENCE and TIME in message \
+            and USER in message and message[USER][ACCOUNT_NAME] == 'Guest':
+        send_message(client, {RESPONSE: 200})
+        return
+    # Если это сообщение, то добавляем его в очередь сообщений. Ответ не требуется.
+    elif ACTION in message and message[ACTION] == MESSAGE and \
+            TIME in message and MESSAGE_TEXT in message:
+        messages_list.append((message[ACCOUNT_NAME], message[MESSAGE_TEXT]))
+        return
+    # Иначе отдаём Bad request
     else:
-        return listen_address
+        send_message(client, {
+            RESPONSE: 400,
+            ERROR: 'Bad Request'
+        })
+        return
+
+
+@log
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-p', default=DEFAULT_PORT, type=int, nargs='?')
+    parser.add_argument('-a', default='', nargs='?')
+    namespace = parser.parse_args(sys.argv[1:])
+    listen_port = namespace.p
+    listen_address = namespace.a
+
+    if not check_port(listen_port):
+        LOGGER.critical(f'Invalid port -  {listen_port}.')
+        sys.exit(1)
+
+    return listen_address, listen_port
 
 
 def main() -> None:
-    port = get_port()
-    ip_address = get_ip_address()
+    ip_address, port = parse_args()
+
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind((ip_address, port))
+    server.settimeout(0.5)
     server.listen(MAX_CONNECTIONS)
+
+    clients, messages = [], []
+
     while True:
-        client, client_address = server.accept()
-        SERVER_LOGGER.info(f'Connection established with {client_address}')
         try:
-            message_from_client = get_message(client)
-            SERVER_LOGGER.debug(f'Message received {message_from_client}')
-            response = parse_client_message(message_from_client)
-            send_message(client, response)
-        except json.JSONDecodeError:
-            SERVER_LOGGER.error(f'Error decoding json string')
-        except ValueError:
-            SERVER_LOGGER.error(f'Error!')
-        finally:
-            SERVER_LOGGER.debug(f'Connection with {client_address} is closing.')
-            client.close()
+            client, client_address = server.accept()
+            LOGGER.info(f'Connection established with {client_address}')
+        except OSError:
+            pass
+        else:
+            clients.append(client)
+
+        recv_data_lst, send_data_lst, err_lst = [], [], []
+
+        try:
+            if clients:
+                recv_data_lst, send_data_lst, err_lst = select.select(clients, clients, [], 0)
+        except OSError:
+            pass
+
+        if recv_data_lst:
+            for client_with_message in recv_data_lst:
+                try:
+                    process_client_message(get_message(client_with_message), messages, client_with_message)
+                except Exception as err:
+                    LOGGER.error(f'{str(err)}')
+                    LOGGER.info(f'The client {client_with_message.getpeername()} disconnected from the server')
+                    clients.remove(client_with_message)
+
+        if messages and send_data_lst:
+            sender, message_text = messages.pop(0)
+            message = {
+                ACTION: MESSAGE,
+                SENDER: sender,
+                TIME: time.time(),
+                MESSAGE_TEXT: message_text
+            }
+
+            for waiting_client in send_data_lst:
+                try:
+                    send_message(waiting_client, message)
+                except Exception as err:
+                    LOGGER.error(str(err))
+                    LOGGER.info(f'The client {waiting_client.getpeername()}  disconnected from the server')
+                    clients.remove(waiting_client)
 
 
 if __name__ == '__main__':

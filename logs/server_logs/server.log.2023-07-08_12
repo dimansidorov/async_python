@@ -1,0 +1,18 @@
+2023-07-08 11:59:04,273 INFO server.py Server started. port - 7777
+2023-07-08 11:59:04,274 DEBUG decorators.py Calling function get_port; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 11:59:04,274 INFO server.py Address is not specified, connections from any addresses are accepted.
+2023-07-08 11:59:04,274 DEBUG decorators.py Calling function get_ip_address; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 11:59:50,748 INFO server.py Server started. port - 7777
+2023-07-08 12:00:17,232 INFO server.py Server started. port - 7777
+2023-07-08 12:00:17,233 DEBUG decorators.py Calling function get_port; Parameters: (), ; Module: ['__annotations__', '__builtins__', '__call__', '__class__', '__closure__', '__code__', '__defaults__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__get__', '__getattribute__', '__getstate__', '__globals__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__kwdefaults__', '__le__', '__lt__', '__module__', '__name__', '__ne__', '__new__', '__qualname__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']; Call from function main()
+2023-07-08 12:00:17,233 INFO server.py Address is not specified, connections from any addresses are accepted.
+2023-07-08 12:00:17,233 DEBUG decorators.py Calling function get_ip_address; Parameters: (), ; Module: ['__annotations__', '__builtins__', '__call__', '__class__', '__closure__', '__code__', '__defaults__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__get__', '__getattribute__', '__getstate__', '__globals__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__kwdefaults__', '__le__', '__lt__', '__module__', '__name__', '__ne__', '__new__', '__qualname__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']; Call from function main()
+2023-07-08 12:06:20,327 INFO server.py Server started. port - 7777
+2023-07-08 12:06:20,327 DEBUG server.py Calling function get_port; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 12:06:20,327 INFO server.py Address is not specified, connections from any addresses are accepted.
+2023-07-08 12:06:20,327 DEBUG server.py Calling function get_ip_address; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-08 12:06:54,874 INFO server.py Connection established with ('127.0.0.1', 50500)
+2023-07-08 12:06:54,875 DEBUG server.py Message received {'action': 'presence', 'time': 1688810814.8746781, 'user': {'account_name': 'Guest'}}
+2023-07-08 12:06:54,875 DEBUG server.py Parse message from client: {'action': 'presence', 'time': 1688810814.8746781, 'user': {'account_name': 'Guest'}}
+2023-07-08 12:06:54,875 DEBUG server.py Calling function parse_client_message; Parameters: ({'action': 'presence', 'time': 1688810814.8746781, 'user': {'account_name': 'Guest'}},), ; Module: __main__; Call from function main()
+2023-07-08 12:06:54,875 DEBUG server.py Connection with ('127.0.0.1', 50500) is closing.
