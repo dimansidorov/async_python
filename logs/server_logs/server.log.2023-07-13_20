@@ -1,0 +1,16 @@
+2023-07-13 20:52:32,345 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-13 20:52:32,345 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-13 20:52:55,628 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-13 20:52:55,628 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-13 20:53:13,342 INFO server.py Connection established with ('127.0.0.1', 50870)
+2023-07-13 20:53:13,843 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 50870)>,), ; Module: commons.utils; Call from function main()
+2023-07-13 20:54:21,490 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-13 20:54:21,491 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-13 20:54:30,615 INFO server.py Connection established with ('127.0.0.1', 38714)
+2023-07-13 20:54:31,116 DEBUG server.py Calling function get_message; Parameters: (<socket.socket fd=6, family=2, type=1, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 38714)>,), ; Module: commons.utils; Call from function main()
+2023-07-13 20:54:31,116 ERROR server.py TypeError
+2023-07-13 20:54:31,117 INFO server.py The client ('127.0.0.1', 38714) disconnected from the server
+2023-07-13 20:55:15,519 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-13 20:55:15,519 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-13 20:55:21,520 DEBUG server.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-13 20:55:21,520 DEBUG server.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
