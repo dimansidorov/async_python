@@ -1024,3 +1024,40 @@ hello
 2023-07-14 12:12:23,048 CRITICAL client.py Connection to the server is lost
 2023-07-14 12:12:23,049 DEBUG threading.py Calling function get_message_from_server; Parameters: (<socket.socket fd=5, family=2, type=1, proto=0, laddr=('127.0.0.1', 54214), raddr=('127.0.0.1', 7777)>, 'user2'), ; Module: __main__; Call from function self._bootstrap_inner()
 2023-07-14 12:12:23,364 DEBUG threading.py Calling function interact_with_user; Parameters: (<socket.socket fd=5, family=2, type=1, proto=0, laddr=('127.0.0.1', 54214), raddr=('127.0.0.1', 7777)>, 'user2'), ; Module: __main__; Call from function self._bootstrap_inner()
+2023-07-16 02:54:25,712 DEBUG client.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-16 02:54:25,712 DEBUG client.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-16 02:54:25,713 DEBUG client.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-16 02:54:25,714 DEBUG client.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-16 02:54:25,714 DEBUG client.py Calling function create_presence_msg; Parameters: ('test2',), ; Module: __main__; Call from function main()
+2023-07-16 02:54:25,714 DEBUG client.py Calling function send_message; Parameters: (<socket.socket fd=328, family=2, type=1, proto=0, laddr=('127.0.0.1', 49332), raddr=('127.0.0.1', 7777)>, {'action': 'presence', 'time': 1689465265.7141237, 'user': {'account_name': 'test2'}}), ; Module: commons.utils; Call from function main()
+2023-07-16 02:54:25,714 DEBUG client.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-16 02:54:25,715 DEBUG client.py Calling function create_presence_msg; Parameters: ('test1',), ; Module: __main__; Call from function main()
+2023-07-16 02:54:25,715 DEBUG client.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-16 02:54:25,715 DEBUG client.py Calling function get_message; Parameters: (<socket.socket fd=328, family=2, type=1, proto=0, laddr=('127.0.0.1', 49332), raddr=('127.0.0.1', 7777)>,), ; Module: commons.utils; Call from function main()
+2023-07-16 02:54:25,715 INFO client.py getting answer from server
+ge; Parameters: (<socket.socket fd=504, family=2, type=1, proto=0, laddr=('127.0.0.1', 49333), raddr=('127.0.0.1', 7777)>, {'action': 'presence', 'time': 1689465265.7141237, 'user': {'account_name': 'test1'}}), ; Module: commons.utils; Call from function main()
+2023-07-16 02:54:25,716 DEBUG client.py Calling function get_process_response_ans; Parameters: ({'response': 200},), ; Module: __main__; Call from function main()
+2023-07-16 02:54:25,717 INFO client.py 200 : OK
+2023-07-16 02:54:25,718 DEBUG client.py Calling function create_presence_msg; Parameters: ('test3',), ; Module: __main__; Call from function main()
+2023-07-16 02:54:25,719 DEBUG client.py Calling function send_message; Parameters: (<socket.socket fd=460, family=2, type=1, proto=0, laddr=('127.0.0.1', 49334), raddr=('127.0.0.1', 7777)>, {'action': 'presence', 'time': 1689465265.717192, 'user': {'account_name': 'test3'}}), ; Module: commons.utils; Call from function main()
+2023-07-16 02:54:25,720 DEBUG client.py Calling function get_message; Parameters: (<socket.socket fd=504, family=2, type=1, proto=0, laddr=('127.0.0.1', 49333), raddr=('127.0.0.1', 7777)>,), ; Module: commons.utils; Call from function main()
+2023-07-16 02:54:25,720 INFO client.py getting answer from server
+2023-07-16 02:54:25,720 DEBUG client.py Calling function get_process_response_ans; Parameters: ({'response': 200},), ; Module: __main__; Call from function main()
+2023-07-16 02:54:25,720 INFO client.py 200 : OK
+2023-07-16 02:54:25,722 DEBUG client.py Calling function get_message; Parameters: (<socket.socket fd=460, family=2, type=1, proto=0, laddr=('127.0.0.1', 49334), raddr=('127.0.0.1', 7777)>,), ; Module: commons.utils; Call from function main()
+2023-07-16 02:54:25,722 INFO client.py getting answer from server
+2023-07-16 02:54:25,722 DEBUG client.py Calling function get_process_response_ans; Parameters: ({'response': 200},), ; Module: __main__; Call from function main()
+2023-07-16 02:54:25,722 INFO client.py 200 : OK
+2023-07-16 02:54:25,756 DEBUG client.py Calling function print_help; Parameters: (), ; Module: __main__; Call from function self._bootstrap_inner()
+2023-07-16 02:54:54,904 INFO client.py A message has been generated
+2023-07-16 02:54:54,904 DEBUG client.py Calling function send_message; Parameters: (<socket.socket fd=328, family=2, type=1, proto=0, laddr=('127.0.0.1', 49332), raddr=('127.0.0.1', 7777)>, {'action': 'message', 'from': 'test2', 'to': 'test1', 'time': 1689465294.9047859, 'message_text': 'hello'}), ; Module: commons.utils; Call from function self._bootstrap_inner()
+2023-07-16 02:54:54,904 INFO client.py Send a message to test1
+2023-07-16 02:54:54,904 DEBUG client.py Calling function create_message; Parameters: (<socket.socket fd=328, family=2, type=1, proto=0, laddr=('127.0.0.1', 49332), raddr=('127.0.0.1', 7777)>, 'test2'), ; Module: __main__; Call from function self._bootstrap_inner()
+2023-07-16 02:54:54,998 DEBUG client.py Calling function get_message; Parameters: (<socket.socket fd=504, family=2, type=1, proto=0, laddr=('127.0.0.1', 49333), raddr=('127.0.0.1', 7777)>,), ; Module: commons.utils; Call from function self._bootstrap_inner()
+2023-07-16 02:54:54,998 INFO client.py Received a message from the usertest2:hello
+2023-07-16 02:55:24,499 INFO client.py A message has been generated
+2023-07-16 02:55:24,499 DEBUG client.py Calling function send_message; Parameters: (<socket.socket fd=504, family=2, type=1, proto=0, laddr=('127.0.0.1', 49333), raddr=('127.0.0.1', 7777)>, {'action': 'message', 'from': 'test1', 'to': 'test2', 'time': 1689465324.499254, 'message_text': 'hi'}), ; Module: commons.utils; Call from function self._bootstrap_inner()
+2023-07-16 02:55:24,499 INFO client.py Send a message to test2
+2023-07-16 02:55:24,499 DEBUG client.py Calling function create_message; Parameters: (<socket.socket fd=504, family=2, type=1, proto=0, laddr=('127.0.0.1', 49333), raddr=('127.0.0.1', 7777)>, 'test1'), ; Module: __main__; Call from function self._bootstrap_inner()
+2023-07-16 02:55:24,815 DEBUG client.py Calling function get_message; Parameters: (<socket.socket fd=328, family=2, type=1, proto=0, laddr=('127.0.0.1', 49332), raddr=('127.0.0.1', 7777)>,), ; Module: commons.utils; Call from function self._bootstrap_inner()
+2023-07-16 02:55:24,815 INFO client.py Received a message from the usertest1:hi
