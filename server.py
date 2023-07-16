@@ -1,3 +1,4 @@
+import time
 import select
 import socket
 import sys
@@ -6,15 +7,12 @@ from commons.variables import (
     ACCOUNT_NAME,
     ACTION,
     DEFAULT_PORT,
-    DESTINATION,
     ERROR,
-    EXIT,
     MAX_CONNECTIONS,
     MESSAGE,
     MESSAGE_TEXT,
     PRESENCE,
-    RESPONSE_200,
-    RESPONSE_400,
+    RESPONSE,
     SENDER,
     TIME,
     USER
@@ -29,45 +27,25 @@ LOGGER = logging.getLogger('server')
 
 
 @log
-def process_client_message(message, messages_list, client, clients, names) -> None:
-    LOGGER.debug(f'Parsing a message from a client : {message}')
-    if all([ACTION in message, message[ACTION] == PRESENCE, TIME in message, USER in message]):
-        if message[USER][ACCOUNT_NAME] not in names:
-            names[message[USER][ACCOUNT_NAME]] = client
-            response = RESPONSE_200
-            send_message(client, response)
-        else:
-            response = RESPONSE_400
-            response[ERROR] = 'The username is already taken.'
-            send_message(client, response)
-            clients.remove(client)
-            client.close()
-
-    elif all([ACTION in message, message[ACTION] == MESSAGE, TIME in message, MESSAGE_TEXT in message]):
-        messages_list.append(message)
-
-    elif all([ACTION in message, message[ACTION] == EXIT, ACCOUNT_NAME in message]):
-        clients.remove(names[message[ACCOUNT_NAME]])
-        names[message[ACCOUNT_NAME]].close()
-        del names[message[ACCOUNT_NAME]]
-
+def process_client_message(message, messages_list, client) -> None:
+    LOGGER.debug(f'Разбор сообщения от клиента : {message}')
+    # Если это сообщение о присутствии, принимаем и отвечаем, если успех
+    if ACTION in message and message[ACTION] == PRESENCE and TIME in message \
+            and USER in message and message[USER][ACCOUNT_NAME] == 'Guest':
+        send_message(client, {RESPONSE: 200})
+        return
+    # Если это сообщение, то добавляем его в очередь сообщений. Ответ не требуется.
+    elif ACTION in message and message[ACTION] == MESSAGE and \
+            TIME in message and MESSAGE_TEXT in message:
+        messages_list.append((message[ACCOUNT_NAME], message[MESSAGE_TEXT]))
+        return
+    # Иначе отдаём Bad request
     else:
-        response = RESPONSE_400
-        response[ERROR] = 'Bad Request'
-        send_message(client, response)
-
-
-@log
-def process_message(message, names, listen_socks):
-    if all([message[DESTINATION] in names, names[message[DESTINATION]] in listen_socks]):
-        send_message(names[message[DESTINATION]], message)
-        LOGGER.info(f'A message has been sent to the user {message[DESTINATION]} from {message[SENDER]}.')
-
-    elif all([message[DESTINATION] in names, names[message[DESTINATION]] not in listen_socks]):
-        raise ConnectionError
-
-    else:
-        LOGGER.error(f'User {message[DESTINATION]} is not registered on the server.')
+        send_message(client, {
+            RESPONSE: 400,
+            ERROR: 'Bad Request'
+        })
+        return
 
 
 @log
@@ -94,7 +72,7 @@ def main() -> None:
     server.settimeout(0.5)
     server.listen(MAX_CONNECTIONS)
 
-    clients, messages, names = [], [], {}
+    clients, messages = [], []
 
     while True:
         try:
@@ -116,40 +94,28 @@ def main() -> None:
         if recv_data_lst:
             for client_with_message in recv_data_lst:
                 try:
-                    process_client_message(
-                        get_message(client_with_message), messages, client_with_message, clients, names
-                    )
+                    process_client_message(get_message(client_with_message), messages, client_with_message)
                 except Exception as err:
-                    LOGGER.error(f'{type(err).__name__}')
+                    LOGGER.error(f'{str(err)}')
                     LOGGER.info(f'The client {client_with_message.getpeername()} disconnected from the server')
                     clients.remove(client_with_message)
 
-        for message in messages:
-            try:
-                process_message(message, names, send_data_lst)
-            except Exception as err:
-                LOGGER.error(f'{type(err).__name__}')
-                LOGGER.info(f'Communication with a client "{message[DESTINATION]}" has been lost')
-                clients.remove(names[message[DESTINATION]])
-                del names[message[DESTINATION]]
-        messages.clear()
+        if messages and send_data_lst:
+            sender, message_text = messages.pop(0)
+            message = {
+                ACTION: MESSAGE,
+                SENDER: sender,
+                TIME: time.time(),
+                MESSAGE_TEXT: message_text
+            }
 
-        # if messages and send_data_lst:
-        #     sender, message_text = messages.pop(0)
-        #     message = {
-        #         ACTION: MESSAGE,
-        #         SENDER: sender,
-        #         TIME: time.time(),
-        #         MESSAGE_TEXT: message_text
-        #     }
-
-        # for waiting_client in send_data_lst:
-        #     try:
-        #         send_message(waiting_client, message)
-        #     except Exception as err:
-        #         LOGGER.error(str(err))
-        #         LOGGER.info(f'The client {waiting_client.getpeername()}  disconnected from the server')
-        #         clients.remove(waiting_client)
+            for waiting_client in send_data_lst:
+                try:
+                    send_message(waiting_client, message)
+                except Exception as err:
+                    LOGGER.error(str(err))
+                    LOGGER.info(f'The client {waiting_client.getpeername()}  disconnected from the server')
+                    clients.remove(waiting_client)
 
 
 if __name__ == '__main__':

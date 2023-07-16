@@ -694,6 +694,7 @@ hello
 2023-07-11 13:21:19,862 DEBUG client.py Calling function get_message; Parameters: (<socket.socket fd=5, family=2, type=1, proto=0, laddr=('127.0.0.1', 38082), raddr=('127.0.0.1', 7777)>,), ; Module: commons.utils; Call from function main()
 2023-07-11 13:21:19,862 INFO client.py Received a message from the userGuest:how do you do?
 2023-07-11 13:21:19,862 DEBUG client.py Calling function get_message_from_server; Parameters: ({'action': 'message', '': 'Guest', 'time': 1689074479.861258, 'message_text': 'how do you do?'},), ; Module: __main__; Call from function main()
+<<<<<<< HEAD
 2023-07-13 20:53:08,972 DEBUG client.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
 2023-07-13 20:53:08,972 DEBUG client.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
 2023-07-13 20:53:13,342 DEBUG client.py Calling function create_presence_msg; Parameters: ('d',), ; Module: __main__; Call from function main()
@@ -1061,3 +1062,5 @@ ge; Parameters: (<socket.socket fd=504, family=2, type=1, proto=0, laddr=('127.0
 2023-07-16 02:55:24,499 DEBUG client.py Calling function create_message; Parameters: (<socket.socket fd=504, family=2, type=1, proto=0, laddr=('127.0.0.1', 49333), raddr=('127.0.0.1', 7777)>, 'test1'), ; Module: __main__; Call from function self._bootstrap_inner()
 2023-07-16 02:55:24,815 DEBUG client.py Calling function get_message; Parameters: (<socket.socket fd=328, family=2, type=1, proto=0, laddr=('127.0.0.1', 49332), raddr=('127.0.0.1', 7777)>,), ; Module: commons.utils; Call from function self._bootstrap_inner()
 2023-07-16 02:55:24,815 INFO client.py Received a message from the usertest1:hi
+=======
+>>>>>>> parent of 67c263c (create errors.py, update server.py, variables.py, client.py)
