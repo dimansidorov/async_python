@@ -24,3 +24,4 @@ while True:
         while PROCESSES:
             VICTIM = PROCESSES.pop()
             VICTIM.kill()
+
