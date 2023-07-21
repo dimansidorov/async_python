@@ -1,4 +1,3 @@
-import time
 import select
 import socket
 import sys
@@ -10,7 +9,6 @@ from commons.variables import (
     DESTINATION,
     ERROR,
     EXIT,
-    MAX_CONNECTIONS,
     MESSAGE,
     MESSAGE_TEXT,
     PRESENCE,
@@ -69,21 +67,25 @@ class Server(metaclass=ServerVerifier):
                 send_message(client, response)
                 self.clients.remove(client)
                 client.close()
+            return
 
         elif all([ACTION in message, message[ACTION] == MESSAGE,
                   DESTINATION in message, TIME in message,
                   SENDER in message, MESSAGE_TEXT in message]):
             self.messages.append(message)
+            return
 
         elif all([ACTION in message, message[ACTION] == EXIT, ACCOUNT_NAME in message]):
             self.clients.remove(self.names[message[ACCOUNT_NAME]])
             self.names[message[ACCOUNT_NAME]].close()
             del self.names[message[ACCOUNT_NAME]]
+            return
 
         else:
             response = RESPONSE_400
             response[ERROR] = 'The request is incorrect.'
             send_message(client, response)
+            return
 
     def process_message(self, message, listen_socks):
         if all([message[DESTINATION] in self.names, self.names[message[DESTINATION]] in listen_socks]):
