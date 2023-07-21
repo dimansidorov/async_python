@@ -121,7 +121,7 @@ def main():
         while True:
             try:
                 if client_mode == 'listen':
-                    a = get_message_from_server(get_message(client))
+                    get_message_from_server(get_message(client))
                 else:
                     send_message(client, create_message(client))
             except Exception as err:
