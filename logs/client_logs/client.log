@@ -1062,5 +1062,19 @@ ge; Parameters: (<socket.socket fd=504, family=2, type=1, proto=0, laddr=('127.0
 2023-07-16 02:55:24,499 DEBUG client.py Calling function create_message; Parameters: (<socket.socket fd=504, family=2, type=1, proto=0, laddr=('127.0.0.1', 49333), raddr=('127.0.0.1', 7777)>, 'test1'), ; Module: __main__; Call from function self._bootstrap_inner()
 2023-07-16 02:55:24,815 DEBUG client.py Calling function get_message; Parameters: (<socket.socket fd=328, family=2, type=1, proto=0, laddr=('127.0.0.1', 49332), raddr=('127.0.0.1', 7777)>,), ; Module: commons.utils; Call from function self._bootstrap_inner()
 2023-07-16 02:55:24,815 INFO client.py Received a message from the usertest1:hi
-=======
->>>>>>> parent of 67c263c (create errors.py, update server.py, variables.py, client.py)
+2023-07-21 18:02:59,857 DEBUG client.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-21 18:02:59,857 DEBUG client.py Calling function check_mode; Parameters: ('listen',), ; Module: commons.utils; Call from function main()
+2023-07-21 18:02:59,857 DEBUG client.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-21 18:02:59,857 INFO client.py The client is running with the following parameters: server address: user1, port: 7777, username: listen
+2023-07-21 18:11:56,434 DEBUG client.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-21 18:11:56,435 DEBUG client.py Calling function check_mode; Parameters: ('listen',), ; Module: commons.utils; Call from function main()
+2023-07-21 18:11:56,435 DEBUG client.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-21 18:11:56,435 INFO client.py The client is running with the following parameters: server address: user1, port: 7777, username: listen
+2023-07-21 18:14:02,481 DEBUG client.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-21 18:14:02,481 DEBUG client.py Calling function check_mode; Parameters: ('listen',), ; Module: commons.utils; Call from function main()
+2023-07-21 18:14:02,481 DEBUG client.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-21 18:14:02,481 INFO client.py The client is running with the following parameters: server address: user1, port: 7777, username: listen
+2023-07-21 18:15:13,601 DEBUG client.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function main()
+2023-07-21 18:15:13,601 DEBUG client.py Calling function check_mode; Parameters: ('listen',), ; Module: commons.utils; Call from function main()
+2023-07-21 18:15:13,601 DEBUG client.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function main()
+2023-07-21 18:15:13,601 INFO client.py The client is running with the following parameters: server address: user1, port: 7777, username: listen

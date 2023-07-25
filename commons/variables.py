@@ -14,6 +14,7 @@ TIME = 'time'
 USER = 'user'
 ACCOUNT_NAME = 'account_name'
 SENDER = ''
+DESTINATION = 'to'
 
 """Additional keys"""
 PRESENCE = 'presence'
@@ -21,7 +22,7 @@ RESPONSE = 'response'
 ERROR = 'error'
 MESSAGE = 'message'
 MESSAGE_TEXT = 'message_text'
-
+EXIT = 'exit'
 
 """Logging"""
 LOGGING_LEVEL = logging.DEBUG
@@ -30,3 +31,12 @@ LOGGER_CRITICAL = 'CRITICAL ERROR'
 LOGGER_ERROR = 'ERROR'
 LOGGER_DEBUG = 'DEBUG INFO'
 LOGGER_INFO = 'INFO'
+
+"""Responses"""
+RESPONSE_200 = {
+    RESPONSE: 200
+}
+RESPONSE_400 = {
+    RESPONSE: 400,
+    ERROR: None
+}
