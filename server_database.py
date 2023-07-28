@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, TIMESTAMP
+from sqlalchemy import create_engine, Column, Integer, String, MetaData, ForeignKey, TIMESTAMP
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 from commons.variables import *
@@ -73,9 +73,10 @@ class ServerStorage:
             self.sent = 0
             self.accepted = 0
 
-    def __init__(self):
+    def __init__(self, path):
         self.base = BASE
-        self.database_engine = create_engine(SERVER_DATABASE, echo=False, pool_recycle=7200)
+        self.database_engine = create_engine(f'sqlite:///{path}', echo=False, pool_recycle=7200,
+                                             connect_args={'check_same_thread': False})
         self.base.metadata.create_all(self.database_engine)
         session = sessionmaker(bind=self.database_engine)
         self.session = session()
