@@ -1,4 +1,4 @@
-import socket
+import socket as s
 import sys
 import time
 import logging
@@ -39,7 +39,7 @@ class ClientTransport(threading.Thread, QObject):
         self.running = True
 
     def connection_init(self, port, ip):
-        self.transport = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.transport = s.socket(s.AF_INET, s.SOCK_STREAM)
 
         self.transport.settimeout(5)
 
