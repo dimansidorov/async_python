@@ -1,4 +1,5 @@
 import logging
+from sqlalchemy.orm import declarative_base
 
 """Settings"""
 """Default settings"""
