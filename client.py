@@ -23,9 +23,8 @@ from commons.variables import (
 )
 
 import logging
-import logs.config_client_logs
 from decorators import log
-from errors import ReqFieldMissingError, ServerError
+from commons.errors import ReqFieldMissingError, ServerError
 from metaclasses import ClientVerifier
 
 LOGGER = logging.getLogger('client')
