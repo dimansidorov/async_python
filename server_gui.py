@@ -9,7 +9,7 @@ import os
 def gui_create_model(database):
     list_users = database.active_users_list()
     list = QStandardItemModel()
-    list.setHorizontalHeaderLabels(['Имя Клиента', 'IP Адрес', 'Порт', 'Время подключения'])
+    list.setHorizontalHeaderLabels(["Client's Name", 'IP-address', 'Port', 'Connection time'])
     for row in list_users:
         user, ip, port, time = row
         user = QStandardItem(user)
@@ -29,7 +29,7 @@ def create_stat_model(database):
 
     list = QStandardItemModel()
     list.setHorizontalHeaderLabels(
-        ['Имя Клиента', 'Последний раз входил', 'Сообщений отправлено', 'Сообщений получено'])
+        ["Client's Name", 'last connection', 'Messages sent', 'Messages received'])
     for row in hist_list:
         user, last_seen, sent, recvd = row
         user = QStandardItem(user)
@@ -50,15 +50,15 @@ class MainWindow(QMainWindow):
         self.initUI()
 
     def initUI(self):
-        exitAction = QAction('Выход', self)
+        exitAction = QAction('Quit', self)
         exitAction.setShortcut('Ctrl+Q')
         exitAction.triggered.connect(qApp.quit)
 
-        self.refresh_button = QAction('Обновить список', self)
+        self.refresh_button = QAction('Update the list', self)
 
-        self.config_btn = QAction('Настройки сервера', self)
+        self.config_btn = QAction('Server settings', self)
 
-        self.show_history_button = QAction('История клиентов', self)
+        self.show_history_button = QAction('Client history', self)
 
         self.statusBar()
 
@@ -71,7 +71,7 @@ class MainWindow(QMainWindow):
         self.setFixedSize(800, 600)
         self.setWindowTitle('Messaging Server alpha release')
 
-        self.label = QLabel('Список подключённых клиентов:', self)
+        self.label = QLabel('List of connected clients:', self)
         self.label.setFixedSize(240, 15)
         self.label.move(10, 25)
 
@@ -88,11 +88,11 @@ class HistoryWindow(QDialog):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle('Статистика клиентов')
+        self.setWindowTitle('Customer statistics')
         self.setFixedSize(600, 700)
         self.setAttribute(Qt.WA_DeleteOnClose)
 
-        self.close_button = QPushButton('Закрыть', self)
+        self.close_button = QPushButton('Close', self)
         self.close_button.move(250, 650)
         self.close_button.clicked.connect(self.close)
 
@@ -110,9 +110,9 @@ class ConfigWindow(QDialog):
 
     def initUI(self):
         self.setFixedSize(365, 260)
-        self.setWindowTitle('Настройки сервера')
+        self.setWindowTitle('Server settings')
 
-        self.db_path_label = QLabel('Путь до файла базы данных: ', self)
+        self.db_path_label = QLabel('The path to the database file: ', self)
         self.db_path_label.move(10, 10)
         self.db_path_label.setFixedSize(240, 15)
 
@@ -121,7 +121,7 @@ class ConfigWindow(QDialog):
         self.db_path.move(10, 30)
         self.db_path.setReadOnly(True)
 
-        self.db_path_select = QPushButton('Обзор...', self)
+        self.db_path_select = QPushButton('Review...', self)
         self.db_path_select.move(275, 28)
 
         def open_file_dialog():
@@ -133,7 +133,7 @@ class ConfigWindow(QDialog):
 
         self.db_path_select.clicked.connect(open_file_dialog)
 
-        self.db_file_label = QLabel('Имя файла базы данных: ', self)
+        self.db_file_label = QLabel('Database filename: ', self)
         self.db_file_label.move(10, 68)
         self.db_file_label.setFixedSize(180, 15)
 
@@ -141,7 +141,7 @@ class ConfigWindow(QDialog):
         self.db_file.move(200, 66)
         self.db_file.setFixedSize(150, 20)
 
-        self.port_label = QLabel('Номер порта для соединений:', self)
+        self.port_label = QLabel('Port', self)
         self.port_label.move(10, 108)
         self.port_label.setFixedSize(180, 15)
 
@@ -149,11 +149,11 @@ class ConfigWindow(QDialog):
         self.port.move(200, 108)
         self.port.setFixedSize(150, 20)
 
-        self.ip_label = QLabel('С какого IP принимаем соединения:', self)
+        self.ip_label = QLabel('Ip-address', self)
         self.ip_label.move(10, 148)
         self.ip_label.setFixedSize(180, 15)
 
-        self.ip_label_note = QLabel(' оставьте это поле пустым, чтобы\n принимать соединения с любых адресов.', self)
+        self.ip_label_note = QLabel(' leave this field empty to \n accept connections from any addresses.', self)
         self.ip_label_note.move(10, 168)
         self.ip_label_note.setFixedSize(500, 30)
 
@@ -161,10 +161,10 @@ class ConfigWindow(QDialog):
         self.ip.move(200, 148)
         self.ip.setFixedSize(150, 20)
 
-        self.save_btn = QPushButton('Сохранить', self)
+        self.save_btn = QPushButton('Save', self)
         self.save_btn.move(190, 220)
 
-        self.close_button = QPushButton('Закрыть', self)
+        self.close_button = QPushButton('Close', self)
         self.close_button.move(275, 220)
         self.close_button.clicked.connect(self.close)
 

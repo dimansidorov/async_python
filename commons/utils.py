@@ -4,7 +4,7 @@ from socket import socket
 from .variables import MAX_PACKAGE_LENGTH, ENCODING
 
 from typing import NoReturn
-from decorators import log
+from commons.decorators import log
 
 
 @log
