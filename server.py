@@ -6,6 +6,7 @@ import configparser
 import logs.config_server_logs
 from commons.utils import *
 from commons.decorators import log
+from commons.variables import DEFAULT_PORT
 from server.core import MessageProcessor
 from server.database import ServerStorage
 from server.main_window import MainWindow
