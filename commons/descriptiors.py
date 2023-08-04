@@ -1,4 +1,5 @@
-from commons.utils import check_port
+from sqlalchemy import values
+
 import logging
 
 logger = logging.getLogger('server')
@@ -9,7 +10,7 @@ class Port:
         self.name = name
 
     def __set__(self, instance, value):
-        if not check_port(value):
+        if not 1023 < value < 65536:
             logger.critical(
                 f'An attempt to start the server with an unsuitable port {value}.'
             )

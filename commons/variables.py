@@ -14,8 +14,10 @@ ACTION = 'action'
 TIME = 'time'
 USER = 'user'
 ACCOUNT_NAME = 'account_name'
-SENDER = ''
+SENDER = 'from'
 DESTINATION = 'to'
+DATA = 'bin'
+PUBLIC_KEY = 'pubkey'
 
 """Additional keys"""
 PRESENCE = 'presence'
@@ -29,6 +31,7 @@ LIST_INFO = 'data_list'
 REMOVE_CONTACT = 'remove'
 ADD_CONTACT = 'add'
 USERS_REQUEST = 'get_users'
+PUBLIC_KEY_REQUEST = 'pubkey_need'
 
 """Logging"""
 LOGGING_LEVEL = logging.DEBUG
@@ -51,4 +54,13 @@ RESPONSE_202 = {
 RESPONSE_400 = {
     RESPONSE: 400,
     ERROR: None
+}
+
+RESPONSE_205 = {
+    RESPONSE: 205
+}
+
+RESPONSE_511 = {
+    RESPONSE: 511,
+    DATA: None
 }
