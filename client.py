@@ -2,12 +2,13 @@ import logging
 import logs.config_client_logs
 import argparse
 import sys
-from PyQt5.QtWidgets import QApplication
+import os
+from PyQt5.QtWidgets import QApplication, QMessageBox
 
+from commons.utils import check_port
 from commons.variables import *
 from commons.errors import ServerError
 from commons.decorators import log
-from commons.utils import check_port
 from client.database import ClientDatabase
 from client.transport import ClientTransport
 from client.main_window import ClientMainWindow

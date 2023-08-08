@@ -1,9 +1,12 @@
+import socket as s
+
 import logs.config_client_logs
 import logs.config_server_logs
 import logging
 import sys
 import inspect
 import traceback
+
 
 
 if 'client' in sys.argv[0]:
@@ -22,4 +25,27 @@ def log(func):
         return result
 
     return wrapper
+
+
+def login_required(func):
+    def checker(*args, **kwargs):
+        from server.core import MessageProcessor
+        from commons.variables import ACTION, PRESENCE
+        if isinstance(args[0], MessageProcessor):
+            found = False
+            for arg in args:
+                if isinstance(arg, s.socket):
+                    for client in args[0].names:
+                        if args[0].names[client] == arg:
+                            found = True
+
+            for arg in args:
+                if isinstance(arg, dict):
+                    if ACTION in arg and arg[ACTION] == PRESENCE:
+                        found = True
+            if not found:
+                raise TypeError
+        return func(*args, **kwargs)
+
+    return checker
 
