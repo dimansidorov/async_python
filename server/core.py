@@ -9,7 +9,7 @@ import threading
 import select
 
 from commons.decorators import login_required
-from commons.descriptiors import Port
+from commons.descriptors import Port
 from commons.utils import send_message, get_message
 from commons.variables import DESTINATION, ACTION, PRESENCE, USER, TIME, MESSAGE_TEXT, SENDER, MESSAGE, RESPONSE_200, \
     RESPONSE_400, ERROR, EXIT, ACCOUNT_NAME, GET_CONTACTS, RESPONSE_202, LIST_INFO, ADD_CONTACT, REMOVE_CONTACT, \
