@@ -1090,3 +1090,5 @@ ge; Parameters: (<socket.socket fd=504, family=2, type=1, proto=0, laddr=('127.0
 2023-08-01 17:02:33,646 INFO transport.py Connection attempt №4
 2023-08-01 17:02:36,660 INFO transport.py Connection attempt №5
 2023-08-01 17:02:39,688 CRITICAL transport.py Failed to establish a connection with the server
+2023-08-09 13:16:24,649 DEBUG client.py Calling function check_port; Parameters: (7777,), ; Module: commons.utils; Call from function parse_args()
+2023-08-09 13:16:24,658 DEBUG client.py Calling function parse_args; Parameters: (), ; Module: __main__; Call from function parse_args()

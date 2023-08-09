@@ -4,12 +4,19 @@ import os
 
 
 class ConfigWindow(QDialog):
+    """
+    Class Settings window
+    """
     def __init__(self, config):
         super().__init__()
         self.config = config
         self.initUI()
 
     def initUI(self):
+        """
+        Settings of the window
+        :return:
+        """
         self.setFixedSize(365, 260)
         self.setWindowTitle('Server Settings')
         self.setAttribute(Qt.WA_DeleteOnClose)
@@ -75,6 +82,10 @@ class ConfigWindow(QDialog):
         self.save_btn.clicked.connect(self.save_server_config)
 
     def open_file_dialog(self):
+        """
+        Method handler for opening the folder selection window
+        :return:
+        """
         global dialog
         dialog = QFileDialog(self)
         path = dialog.getExistingDirectory()
@@ -83,6 +94,12 @@ class ConfigWindow(QDialog):
         self.db_path.insert(path)
 
     def save_server_config(self):
+        """
+        The method of saving settings.
+        Checks the correctness of the entered data and
+        if everything saves the ini file correctly.
+        :return:
+        """
         global config_window
         message = QMessageBox()
         self.config['SETTINGS']['Database_path'] = self.db_path.text()

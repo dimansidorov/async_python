@@ -1,8 +1,10 @@
-from PyQt5.QtWidgets import QDialog, QPushButton, QLineEdit, QApplication, QLabel , qApp
-from PyQt5.QtCore import QEvent
+from PyQt5.QtWidgets import QDialog, QPushButton, QLineEdit, QApplication, QLabel, qApp
 
 
 class UserNameDialog(QDialog):
+    """
+    A class that implements a start dialog with a user login and password request.
+    """
     def __init__(self):
         super().__init__()
 
@@ -30,6 +32,7 @@ class UserNameDialog(QDialog):
         self.show()
 
     def click(self):
+        """The handler method of the OK button."""
         if self.client_name.text():
             self.ok_pressed = True
             qApp.exit()

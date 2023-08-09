@@ -1,14 +1,16 @@
-from sqlalchemy import create_engine, Column, Integer, String, MetaData, ForeignKey, TIMESTAMP, Text
-from sqlalchemy.orm import sessionmaker, declarative_base
-
-from commons.variables import *
+"""Client DB"""
 import datetime
+
+from sqlalchemy import create_engine, Column, Integer, String, TIMESTAMP, Text
+from sqlalchemy.orm import sessionmaker, declarative_base
 
 BASE = declarative_base()
 
 
 class ClientDatabase:
+    """Wrapper class for working with the client database."""
     class KnownUsers(BASE):
+        """All users"""
         __tablename__ = 'known_users'
         id = Column(Integer, primary_key=True)
         username = Column(String)
@@ -18,6 +20,7 @@ class ClientDatabase:
             self.username = user
 
     class MessageHistory(BASE):
+        """All message history"""
         __tablename__ = 'message_history'
         id = Column(Integer, primary_key=True)
         from_user = Column(String)
@@ -33,6 +36,7 @@ class ClientDatabase:
             self.date = datetime.datetime.now()
 
     class Contacts(BASE):
+        """Contacts"""
         __tablename__ = 'contacts'
         id = Column(Integer, primary_key=True)
         name = Column(String)
@@ -52,15 +56,18 @@ class ClientDatabase:
         self.session.commit()
 
     def add_contact(self, contact):
+        """A method that adds a contact to the database."""
         if not self.session.query(self.Contacts).filter_by(name=contact).count():
             contact_row = self.Contacts(contact)
             self.session.add(contact_row)
             self.session.commit()
 
     def del_contact(self, contact):
+        """A method that deletes a contact."""
         self.session.query(self.Contacts).filter_by(name=contact).delete()
 
     def add_users(self, users_list):
+        """A method that fills in the table of known users"""
         self.session.query(self.KnownUsers).delete()
         for user in users_list:
             user_row = self.KnownUsers(user)
@@ -68,29 +75,35 @@ class ClientDatabase:
         self.session.commit()
 
     def save_message(self, from_user, to_user, message):
+        """The method that stores the message in the database"""
         message_row = self.MessageHistory(from_user, to_user, message)
         self.session.add(message_row)
         self.session.commit()
 
     def get_contacts(self):
+        """The method that returns a list of contacts"""
         return [contact[0] for contact in self.session.query(self.Contacts.name).all()]
 
     def get_users(self):
+        """The method that returns a list of users"""
         return [user[0] for user in self.session.query(self.KnownUsers.username).all()]
 
     def check_user(self, user):
+        """The method that checks whether a user exists"""
         if self.session.query(self.KnownUsers).filter_by(username=user).count():
             return True
         else:
             return False
 
     def check_contact(self, contact):
+        """The method that checks whether a contact exists"""
         if self.session.query(self.Contacts).filter_by(name=contact).count():
             return True
         else:
             return False
 
     def get_history(self, from_who=None, to_who=None):
+        """The method that returns a histiry"""
         query = self.session.query(self.MessageHistory)
         if from_who:
             query = query.filter_by(from_user=from_who)

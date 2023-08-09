@@ -5,6 +5,10 @@ import binascii
 
 
 class RegisterUser(QDialog):
+    """
+    Class user registration dialog on the server
+    """
+
     def __init__(self, database, server):
         super().__init__()
 
@@ -54,6 +58,10 @@ class RegisterUser(QDialog):
         self.show()
 
     def save_data(self):
+        """
+        A method for verifying the correctness of entering and saving a new user to the database.
+        :return:
+        """
         if not self.client_name.text():
             self.messages.critical(
                 self, 'Error', 'The user name is not specified.')

@@ -2,6 +2,11 @@ import dis
 
 
 class ClientVerifier(type):
+    """
+    A metaclass that verifies that there are no client
+    calls such as: connect in the resulting class. It is also checked that the server
+    The socket is TCP and works over IPv4 protocol.
+    """
     def __init__(self, clsname, bases, clsdict):
         methods = []
         for func in clsdict:
@@ -25,6 +30,11 @@ class ClientVerifier(type):
 
 
 class ServerVerifier(type):
+    """
+    A metaclass that verifies that the resulting class does not have server-side
+    calls such as: accept, listen. It is also checked that the socket is not
+    created inside the class constructor.
+    """
     def __init__(self, clsname, bases, clsdict):
         methods = []
         attrs = []
