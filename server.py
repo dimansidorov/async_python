@@ -1,23 +1,29 @@
-import sys
-import os
 import argparse
-import logging
 import configparser
-import logs.config_server_logs
-from commons.utils import *
+import logging
+import os
+import sys
+
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication
+
 from commons.decorators import log
 from commons.variables import DEFAULT_PORT
 from server.core import MessageProcessor
 from server.database import ServerStorage
 from server.main_window import MainWindow
-from PyQt5.QtWidgets import QApplication
-from PyQt5.QtCore import Qt
 
 logger = logging.getLogger('server')
 
 
 @log
-def arg_parser(default_port, default_address):
+def parse_args(default_port, default_address):
+    """
+    Command Line Argument Parser
+    :param default_port:
+    :param default_address:
+    :return:
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', default=default_port, type=int, nargs='?')
     parser.add_argument('-a', default=default_address, nargs='?')
@@ -28,8 +34,13 @@ def arg_parser(default_port, default_address):
     gui_flag = namespace.no_gui
     return listen_address, listen_port, gui_flag
 
+
 @log
 def config_load():
+    """
+    Configuration ini file parser
+    :return:
+    """
     config = configparser.ConfigParser()
     dir_path = os.path.dirname(os.path.realpath(__file__))
     config.read(f"{dir_path}/{'server.ini'}")
@@ -45,8 +56,12 @@ def config_load():
 
 
 def main():
+    """
+    Main function
+    :return:
+    """
     config = config_load()
-    listen_address, listen_port, gui_flag = arg_parser(
+    listen_address, listen_port, gui_flag = parse_args(
         config['SETTINGS']['Default_port'], config['SETTINGS']['Listen_Address'])
 
     database = ServerStorage(

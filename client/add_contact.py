@@ -1,14 +1,20 @@
-import sys
+"""Add Contact"""
+
 import logging
 
-from PyQt5.QtWidgets import QDialog, QLabel, QComboBox, QPushButton
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QStandardItemModel, QStandardItem
+from PyQt5.QtWidgets import QDialog, QLabel, QComboBox, QPushButton
 
 logger = logging.getLogger('client')
 
 
 class AddContactDialog(QDialog):
+    """
+    Dialog for adding a user to the contact list.
+    Offers the user a list of possible contacts and
+    adds the selected one to the contacts.
+    """
+
     def __init__(self, transport, database):
         super().__init__()
         self.transport = transport
@@ -44,6 +50,11 @@ class AddContactDialog(QDialog):
         self.btn_refresh.clicked.connect(self.update_possible_contacts)
 
     def possible_contacts_update(self):
+        """
+        Method of filling in the list of possible contacts.
+        Creates a list of all registered users
+        except for those already added to contacts and myself.
+        """
         self.selector.clear()
         contacts_list = set(self.database.get_contacts())
         users_list = set(self.database.get_users())
@@ -51,6 +62,10 @@ class AddContactDialog(QDialog):
         self.selector.addItems(users_list - contacts_list)
 
     def update_possible_contacts(self):
+        """
+        Method for updating the list of possible contacts. Requests from the server
+        the list of known users and updates the contents of the window.
+        """
         try:
             self.transport.user_list_update()
         except OSError:

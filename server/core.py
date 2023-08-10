@@ -1,21 +1,29 @@
-import threading
-import logging
-import select
-import socket as s
-import json
-import hmac
 import binascii
+import hmac
+import json
+import logging
 import os
-from commons.metaclasses import ServerVerifier
-from commons.descriptiors import Port
-from commons.variables import *
-from commons.utils import send_message, get_message
+import socket as s
+import threading
+
+import select
+
 from commons.decorators import login_required
+from commons.descriptors import Port
+from commons.utils import send_message, get_message
+from commons.variables import DESTINATION, ACTION, PRESENCE, USER, TIME, MESSAGE_TEXT, SENDER, MESSAGE, RESPONSE_200, \
+    RESPONSE_400, ERROR, EXIT, ACCOUNT_NAME, GET_CONTACTS, RESPONSE_202, LIST_INFO, ADD_CONTACT, REMOVE_CONTACT, \
+    USERS_REQUEST, PUBLIC_KEY_REQUEST, DATA, RESPONSE_511, PUBLIC_KEY, RESPONSE, RESPONSE_205
 
 logger = logging.getLogger('server')
 
 
 class MessageProcessor(threading.Thread):
+    """
+    The main class of the server. Accepts connections, dictionaries - packages
+    from clients, processes incoming messages.
+    Works as a separate thread.
+    """
     port = Port()
 
     def __init__(self, listen_address, listen_port, database):
@@ -27,10 +35,14 @@ class MessageProcessor(threading.Thread):
         self.listen_sockets = None
         self.error_sockets = None
         self.running = True
-        self.names = dict()
+        self.names = {}
         super().__init__()
 
     def run(self):
+        """
+        The main flow cycle method
+        :return:
+        """
         self.init_socket()
 
         while self.running:
@@ -43,8 +55,6 @@ class MessageProcessor(threading.Thread):
                 client.settimeout(5)
                 self.clients.append(client)
             recv_data_lst = []
-            send_data_lst = []
-            err_lst = []
             try:
                 if self.clients:
                     recv_data_lst, self.listen_sockets, self.error_sockets = select.select(
@@ -62,6 +72,12 @@ class MessageProcessor(threading.Thread):
                         self.remove_client(client_with_message)
 
     def remove_client(self, client):
+        """
+        The handler method of the client with which the connection was interrupted.
+        Searches for a client and removes it from the lists and database
+        :param client:
+        :return:
+        """
         logger.info(f'Client {client.getpeername()} disconnected from the server.')
         for name in self.names:
             if self.names[name] == client:
@@ -72,6 +88,10 @@ class MessageProcessor(threading.Thread):
         client.close()
 
     def init_socket(self):
+        """
+        Socket Initializer method
+        :return:
+        """
         transport = s.socket(s.AF_INET, s.SOCK_STREAM)
         transport.bind((self.addr, self.port))
         transport.settimeout(0.5)
@@ -79,6 +99,11 @@ class MessageProcessor(threading.Thread):
         self.sock.listen()
 
     def process_message(self, message):
+        """
+        The method of sending the message to the client.
+        :param message:
+        :return:
+        """
         if all([
             message[DESTINATION] in self.names,
             self.names[message[DESTINATION]] in self.listen_sockets
@@ -99,13 +124,19 @@ class MessageProcessor(threading.Thread):
 
     @login_required
     def process_client_message(self, message, client):
+        """
+        The method is a handler for incoming messages.
+        :param message:
+        :param client:
+        :return:
+        """
         if all([
             ACTION in message,
             message[ACTION] == PRESENCE,
             TIME in message,
             USER in message
         ]):
-            self.autorize_user(message, client)
+            self.autorise_user(message, client)
 
         elif all([
             ACTION in message,
@@ -220,7 +251,13 @@ class MessageProcessor(threading.Thread):
             except OSError:
                 self.remove_client(client)
 
-    def autorie_user(self, message, sock):
+    def autorise_user(self, message, sock):
+        """
+        A method that implements user authorization
+        :param message:
+        :param sock:
+        :return:
+        """
         if message[USER][ACCOUNT_NAME] in self.names.keys():
             response = RESPONSE_400
             response[ERROR] = 'The username is already taken.'
@@ -243,8 +280,8 @@ class MessageProcessor(threading.Thread):
             message_auth = RESPONSE_511
             random_str = binascii.hexlify(os.urandom(64))
             message_auth[DATA] = random_str.decode('ascii')
-            hash = hmac.new(self.database.get_hash(message[USER][ACCOUNT_NAME]), random_str, 'MD5')
-            digest = hash.digest()
+            hash_ = hmac.new(self.database.get_hash(message[USER][ACCOUNT_NAME]), random_str, 'MD5')
+            digest = hash_.digest()
             logger.debug(f'Auth message = {message_auth}')
             try:
                 send_message(sock, message_auth)
@@ -278,6 +315,10 @@ class MessageProcessor(threading.Thread):
                 sock.close()
 
     def service_update_lists(self):
+        """
+        A method that implements sending a service message to 205 clients.
+        :return:
+        """
         for client in self.names:
             try:
                 send_message(self.names[client], RESPONSE_205)

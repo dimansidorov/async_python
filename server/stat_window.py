@@ -4,6 +4,9 @@ from PyQt5.QtCore import Qt
 
 
 class StatWindow(QDialog):
+    """
+    Class - a window with user statistics
+    """
     def __init__(self, database):
         super().__init__()
 
@@ -11,6 +14,10 @@ class StatWindow(QDialog):
         self.initUI()
 
     def initUI(self):
+        """
+        A method that initialize a UI
+        :return:
+        """
         self.setWindowTitle('Customer statistics')
         self.setFixedSize(600, 700)
         self.setAttribute(Qt.WA_DeleteOnClose)
@@ -26,6 +33,10 @@ class StatWindow(QDialog):
         self.create_stat_model()
 
     def create_stat_model(self):
+        """
+        A method that implements filling the table with message statistics.
+        :return:
+        """
         stat_list = self.database.message_history()
 
         list = QStandardItemModel()

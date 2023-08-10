@@ -1,24 +1,15 @@
-class IncorrectDataRecivedError(Exception):
-    def __str__(self):
-        return 'An incorrect message was received from a remote computer.'
+"""Errors"""
 
 
 class ServerError(Exception):
+    """
+    Exception class, for handling server errors.
+    When generating, it requires a string with a description of the error,
+    received from the server.
+    """
+
     def __init__(self, text):
         self.text = text
 
     def __str__(self):
         return self.text
-
-
-class NonDictInputError(Exception):
-    def __str__(self):
-        return 'The function argument must be a dictionary.'
-
-
-class ReqFieldMissingError(Exception):
-    def __init__(self, missing_field):
-        self.missing_field = missing_field
-
-    def __str__(self):
-        return f'There is no required field in the accepted dictionary {self.missing_field}.'

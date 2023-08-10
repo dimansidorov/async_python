@@ -1,14 +1,21 @@
+import datetime
+
 from sqlalchemy import create_engine, Column, Integer, String, Text, ForeignKey, TIMESTAMP
 from sqlalchemy.orm import sessionmaker, declarative_base
-
-from commons.variables import *
-import datetime
 
 BASE = declarative_base()
 
 
 class ServerStorage:
+    """
+    Wrapper class for working with the server database.
+    Uses SQLite database, implemented with
+    SQLAlchemy ORM and uses a declarative approach.
+    """
     class AllUsers(BASE):
+        """
+        All users table
+        """
         __tablename__ = 'users'
         id = Column(Integer, primary_key=True)
         name = Column(String, unique=True)
@@ -24,6 +31,9 @@ class ServerStorage:
             self.id = None
 
     class ActiveUsers(BASE):
+        """
+        Active users table
+        """
         __tablename__ = 'active_users'
         id = Column(Integer, primary_key=True)
         user = Column(ForeignKey('users.id'))
@@ -39,6 +49,9 @@ class ServerStorage:
             self.last_login = last_login
 
     class LoginHistory(BASE):
+        """
+        Login history table
+        """
         __tablename__ = 'login_history'
         id = Column(Integer, primary_key=True)
         user = Column(ForeignKey('users.id'))
@@ -54,6 +67,10 @@ class ServerStorage:
             self.port = port
 
     class UsersContacts(BASE):
+        """
+        Users contacts table
+        """
+
         __tablename__ = 'users_contacts'
         id = Column(Integer, primary_key=True)
         user = Column(ForeignKey('users.id'))
@@ -65,6 +82,9 @@ class ServerStorage:
             self.contact = contact
 
     class UsersHistory(BASE):
+        """
+        Users history table
+        """
         __tablename__ = 'users_history'
         id = Column(Integer, primary_key=True)
         user = Column(ForeignKey('users.id'))
@@ -89,6 +109,15 @@ class ServerStorage:
         self.session.commit()
 
     def user_login(self, username, ip_address, port, key=""):
+        """
+        The method executed when the user logs in records the fact of logging in to the database
+        Updates the user's public key when it changes.
+        :param username:
+        :param ip_address:
+        :param port:
+        :param key:
+        :return:
+        """
         rez = self.session.query(self.AllUsers).filter_by(name=username)
 
         if rez.count():
@@ -108,6 +137,13 @@ class ServerStorage:
         self.session.commit()
 
     def add_user(self, name, passwd_hash):
+        """
+        User registration method.
+        Accepts the name and password hash, creates an entry in the statistics table.
+        :param name:
+        :param passwd_hash:
+        :return:
+        """
         user_row = self.AllUsers(name, passwd_hash)
         self.session.add(user_row)
         self.session.commit()
@@ -116,6 +152,11 @@ class ServerStorage:
         self.session.commit()
 
     def remove_user(self, name):
+        """
+        The method that removes the user from the database.
+        :param name:
+        :return:
+        """
         user = self.session.query(self.AllUsers).filter_by(name=name).first()
         self.session.query(self.ActiveUsers).filter_by(user=user.id).delete()
         self.session.query(self.LoginHistory).filter_by(name=user.id).delete()
@@ -128,20 +169,40 @@ class ServerStorage:
         self.session.commit()
 
     def get_hash(self, name):
+        """
+        The method of obtaining the hash of the user's password.
+        :param name:
+        :return:
+        """
         user = self.session.query(self.AllUsers).filter_by(name=name).first()
         return user.passwd_hash
 
     def get_pubkey(self, name):
+        """
+        The method of obtaining the hash of the user's pubkey.
+        :param name:
+        :return:
+        """
         user = self.session.query(self.AllUsers).filter_by(name=name).first()
         return user.pubkey
 
     def check_user(self, name):
+        """
+        A method that verifies the existence of a user
+        :param name:
+        :return:
+        """
         if self.session.query(self.AllUsers).filter_by(name=name).count():
             return True
         else:
             return False
 
     def user_logout(self, username):
+        """
+        A method that fixes user disconnections
+        :param username:
+        :return:
+        """
         user = self.session.query(
             self.AllUsers).filter_by(
             name=username).first()
@@ -151,6 +212,12 @@ class ServerStorage:
         self.session.commit()
 
     def process_message(self, sender, recipient):
+        """
+        A method that records the fact of message transmission in the statistics table
+        :param sender:
+        :param recipient:
+        :return:
+        """
         sender = self.session.query(
             self.AllUsers).filter_by(
             name=sender).first().id
@@ -169,6 +236,12 @@ class ServerStorage:
         self.session.commit()
 
     def add_contact(self, user, contact):
+        """
+        Method of adding a contact for the user
+        :param user:
+        :param contact:
+        :return:
+        """
         user = self.session.query(self.AllUsers).filter_by(name=user).first()
         contact = self.session.query(
             self.AllUsers).filter_by(
@@ -185,6 +258,12 @@ class ServerStorage:
         self.session.commit()
 
     def remove_contact(self, user, contact):
+        """
+        Method of deleting a user's contact
+        :param user:
+        :param contact:
+        :return:
+        """
         user = self.session.query(self.AllUsers).filter_by(name=user).first()
         contact = self.session.query(
             self.AllUsers).filter_by(
@@ -200,6 +279,10 @@ class ServerStorage:
         self.session.commit()
 
     def users_list(self):
+        """
+        A method that returns a list of known users with the time of the last login
+        :return:
+        """
         query = self.session.query(
             self.AllUsers.name,
             self.AllUsers.last_login
@@ -207,6 +290,10 @@ class ServerStorage:
         return query.all()
 
     def active_users_list(self):
+        """
+        Method that returns a list of active users
+        :return:
+        """
         query = self.session.query(
             self.AllUsers.name,
             self.ActiveUsers.ip_address,
@@ -216,6 +303,11 @@ class ServerStorage:
         return query.all()
 
     def login_history(self, username=None):
+        """
+        Method that returns the history of inputs
+        :param username:
+        :return:
+        """
         query = self.session.query(self.AllUsers.name,
                                    self.LoginHistory.date_time,
                                    self.LoginHistory.ip,
@@ -226,6 +318,11 @@ class ServerStorage:
         return query.all()
 
     def get_contacts(self, username):
+        """
+        Method that returns the user's contact list
+        :param username:
+        :return:
+        """
         user = self.session.query(self.AllUsers).filter_by(name=username).one()
 
         query = (self.session.query(
@@ -237,6 +334,10 @@ class ServerStorage:
         return [contact[1] for contact in query.all()]
 
     def message_history(self):
+        """
+        A method that returns message statistics.
+        :return:
+        """
         query = self.session.query(
             self.AllUsers.name,
             self.AllUsers.last_login,

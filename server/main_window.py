@@ -1,13 +1,17 @@
-from PyQt5.QtWidgets import QMainWindow, QAction, qApp, QApplication, QLabel, QTableView
-from PyQt5.QtGui import QStandardItemModel, QStandardItem
 from PyQt5.QtCore import QTimer
-from server.stat_window import StatWindow
-from server.config_window import ConfigWindow
+from PyQt5.QtGui import QStandardItemModel, QStandardItem
+from PyQt5.QtWidgets import QMainWindow, QAction, qApp, QLabel, QTableView
+
 from server.add_user import RegisterUser
+from server.config_window import ConfigWindow
 from server.remove_user import DelUserDialog
+from server.stat_window import StatWindow
 
 
 class MainWindow(QMainWindow):
+    """
+    Class - the main server window
+    """
     def __init__(self, database, server, config):
         super().__init__()
 
@@ -64,6 +68,10 @@ class MainWindow(QMainWindow):
         self.show()
 
     def create_users_model(self):
+        """
+        Method that fills in the table of active users
+        :return:
+        """
         list_users = self.database.active_users_list()
         list = QStandardItemModel()
         list.setHorizontalHeaderLabels(
@@ -84,20 +92,36 @@ class MainWindow(QMainWindow):
         self.active_clients_table.resizeRowsToContents()
 
     def show_statistics(self):
+        """
+        A method that creates a window with customer statistics
+        :return:
+        """
         global stat_window
         stat_window = StatWindow(self.database)
         stat_window.show()
 
     def server_config(self):
+        """
+        A method that creates a window with server settings.
+        :return:
+        """
         global config_window
         config_window = ConfigWindow(self.config)
 
     def reg_user(self):
+        """
+        A method that creates a user registration window
+        :return:
+        """
         global reg_window
         reg_window = RegisterUser(self.database, self.server_thread)
         reg_window.show()
 
     def rem_user(self):
+        """
+        A method that creates a user deletion window
+        :return:
+        """
         global rem_window
         rem_window = DelUserDialog(self.database, self.server_thread)
         rem_window.show()

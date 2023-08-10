@@ -4,10 +4,7 @@ import logs.config_client_logs
 import logs.config_server_logs
 import logging
 import sys
-import inspect
 import traceback
-
-
 
 if 'client' in sys.argv[0]:
     LOGGER = logging.getLogger('client')
@@ -16,6 +13,15 @@ else:
 
 
 def log(func):
+    """
+    A decorator that logs function calls.
+    Saves debug type events containing
+    information about the name of the called function, parameters with which
+    the function is called, and the module calling the function.
+    :param func:
+    :return:
+    """
+
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
         LOGGER.debug(f'Calling function {func.__name__}; '
@@ -28,6 +34,14 @@ def log(func):
 
 
 def login_required(func):
+    """
+    A decorator that verifies that the client is authorized on the server.
+    Checks that the transmitted socket object is in the list of authorized clients.
+    Except for the transfer of the dictionary- authorization request.
+    If the client is not logged in, generates a TypeError exception
+    :param func:
+    :return:
+    """
     def checker(*args, **kwargs):
         from server.core import MessageProcessor
         from commons.variables import ACTION, PRESENCE
@@ -48,4 +62,3 @@ def login_required(func):
         return func(*args, **kwargs)
 
     return checker
-

@@ -1,9 +1,11 @@
-from PyQt5.QtWidgets import QDialog, QLabel, QComboBox, QPushButton, QApplication
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QStandardItemModel, QStandardItem
+from PyQt5.QtWidgets import QDialog, QLabel, QComboBox, QPushButton
 
 
 class DelUserDialog(QDialog):
+    """
+    Class - dialog for selecting a contact to delete.
+    """
     def __init__(self, database, server):
         super().__init__()
         self.database = database
@@ -36,9 +38,17 @@ class DelUserDialog(QDialog):
         self.all_users_fill()
 
     def all_users_fill(self):
+        """
+        Method that fills in the list of users
+        :return:
+        """
         self.selector.addItems([item[0] for item in self.database.users_list()])
 
     def remove_user(self):
+        """
+        Handler method for deleting a user
+        :return:
+        """
         self.database.remove_user(self.selector.currentText())
         if self.selector.currentText() in self.server.names:
             sock = self.server.names[self.selector.currentText()]
